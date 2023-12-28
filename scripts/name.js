@@ -16,5 +16,16 @@ nameTextBox.addEventListener('input', function() {
     if (enteredText !== '') {
         localStorage.setItem('savedText', enteredText);
     }
-})
+});
+
+// Set the text from local storage 
+function setTextFromLocalStorage() {
+    const savedText = localStorage.getItem('savedText'); 
+    if (savedText !== null) {
+        nameTextBox.value = savedText;
+    }
+}
+
+// Call the function to retrieve the text saved before to local storage 
+document.addEventListener('DOMContentLoaded', setTextFromLocalStorage)
 
