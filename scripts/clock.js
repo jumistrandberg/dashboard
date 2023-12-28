@@ -1,3 +1,6 @@
+ // Get the clock section
+ const clockSection = document.querySelector('.clock-section');
+
 // Function to get the time from JS Date object
 function currentTime() {
     const now = new Date(); 
@@ -7,13 +10,18 @@ function currentTime() {
 
     const timeString = `${hour}:${minutes}:${seconds}`; 
 
-    // Create div for clock
-    const clockContainer = document.createElement('div');
-    // Give the div a class
-    clockContainer.classList.add('clock-container'); 
-    // Append the new div to the body 
-    
-    // Append the date to the clock div
-    clockContainer.appendChild('timeString');
+    // Create div for clock first time only
+    let clockContainer = clockSection.querySelector('.clock-container'); 
+    // If no clock container div already, create one
+    if (!clockContainer) {
+        clockContainer = document.createElement('div');
+        clockContainer.classList.add('clock-container');
+        clockSection.appendChild(clockContainer); 
+    }
 
+    // Put the time in its container
+    clockContainer.textContent = timeString;
 }
+
+// Call every second
+setInterval(currentTime, 1000);
