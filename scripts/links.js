@@ -70,6 +70,8 @@ const linkName = document.getElementById('link-name');
 const saveLinkBtn = document.getElementById('save-link-btn');
 const linksContainer = document.getElementById('links-container');
 
+let url = linkUrlInput.value;
+let name = linkName.value;
 
 // Open dialog when add link button is clicked
 addLinkBtn.addEventListener('click', () => {
@@ -90,10 +92,21 @@ function addLink(url, name) {
     linksContainer.appendChild(linkAnchor);
 }
 
+// Function to enable add button if input conditions are met
+function enableAddBtn(url, name) {
+    // Regular expression pattern for URL validation
+    const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+
+    // Check if inputs have value and enable button if they have
+    if(url && name && url.match(urlPattern)) {
+        saveLinkBtn.disabled = false
+    } else {
+        saveLinkBtn.disabled = true
+    }
+}
+
 // Event listener for adding a link when the button is clicked
 saveLinkBtn.addEventListener('click', () => {
-    const url = linkUrlInput.value;
-    const name = linkName.value;
 
     if (url && name) {
         addLink(url, name);
@@ -103,6 +116,7 @@ saveLinkBtn.addEventListener('click', () => {
         // Empty input fields 
         linkUrlInput.value = '';
         linkName.value = '';
+    } else {
     }
 });
 
@@ -128,4 +142,5 @@ function getStoredLinks() {
 }
 
 
+enableAddBtn();
 getStoredLinks();
