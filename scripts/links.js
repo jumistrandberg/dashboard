@@ -118,5 +118,6 @@ function removeLinkLocal(url, name) {
 
   localStorage.setItem('linkItem', JSON.stringify(storedLinks));
 }
+
 enableAddBtn();
 getStoredLinks();
