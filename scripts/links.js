@@ -97,6 +97,19 @@ saveLinkBtn.addEventListener('click', () => {
 
     if (url && name) {
         addLink(url, name);
+        // Call local storage save 
+        saveLinksLocal(url, name);
     }
 });
 
+// Function to save to local storage 
+function saveLinksLocal(url, name) {
+    // Get saved links or create new array if none
+    const linkArray = JSON.parse(localStorage.getItem('linkItem')) || []; 
+
+    // Push link 
+    linkArray.push({url, name}); 
+
+    // Save array in local storage 
+    localStorage.setItem('linkItem', JSON.stringify(linkArray)); 
+}
