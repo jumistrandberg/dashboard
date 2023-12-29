@@ -33,16 +33,16 @@ function addLink(url, name) {
 
 // Save the links when 'add' button is clicked 
 saveLinkBtn.addEventListener('click', () => {
-    const url = linkUrlInput.value.trim(); 
-    const name = linkName.value.trim(); 
+    const url = linkUrlInput.value; 
+    const name = linkName.value; 
 
-    if(url !== '') {
+    if(url && name) {
         addLink(url, name); 
         // Save to local storage
         // Get if saved, or create empty array
         let savedLinks = JSON.parse(localStorage.getItem('savedLinks')) || [];
         savedLinks.push({url, name}); 
-        localStorage.setItem('savedLinks', JSON.stringify);
+        localStorage.setItem('savedLinks', JSON.stringify(savedLinks));
 
         // Close and reset
         dialog.close(); 
@@ -56,3 +56,4 @@ saveLinkBtn.addEventListener('click', () => {
     }
     
 })
+
