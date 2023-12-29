@@ -23,11 +23,21 @@ closeDialogBtn.addEventListener("click", () => {
 
 // Function to add a link to linksContainer
 function addLink(url, name) {
+  // Create links
   const linkAnchor = document.createElement("a");
   linkAnchor.classList.add("link-element");
   linkAnchor.href = url;
   linkAnchor.textContent = name || url;
+
+  // Create remove link icon
+  const removeIcon = document.createElement("i");
+  removeIcon.classList.add("fas", "fa-times", "remove-icon");
+  removeIcon.setAttribute("title", "Remove Link");
+
+  // Append links to container div and icon to links
   linksContainer.appendChild(linkAnchor);
+  linksContainer.appendChild(removeIcon);
+  linksContainer.appendChild(linksContainer);
 }
 
 // Function to enable add button if input conditions are met
@@ -49,8 +59,8 @@ linkName.addEventListener("input", enableAddBtn);
 
 // Event listener for adding a link when the button is clicked
 saveLinkBtn.addEventListener("click", () => {
-    const url = linkUrlInput.value;
-    const name = linkName.value;
+  const url = linkUrlInput.value;
+  const name = linkName.value;
 
   if (url && name) {
     addLink(url, name);
