@@ -99,6 +99,10 @@ saveLinkBtn.addEventListener('click', () => {
         addLink(url, name);
         // Call local storage save 
         saveLinksLocal(url, name);
+
+        // Empty input fields 
+        linkUrlInput.value = '';
+        linkName.value = '';
     }
 });
 
@@ -120,7 +124,8 @@ function getStoredLinks() {
 
     storedLinks.forEach(link => {
         addLink(link.url, link.name);
-    })
+    });
 }
+
 
 getStoredLinks();
