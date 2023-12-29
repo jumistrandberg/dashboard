@@ -1,87 +1,88 @@
-// Dialog functionality 
+// Dialog functionality
 // Get the dialog
-const dialog = document.querySelector('dialog');
+const dialog = document.querySelector("dialog");
 // Get the open dialog button (add link)
-const addLinkBtn = document.getElementById('add-link-btn'); 
-// Get the close dialog button 
-const closeDialogBtn = document.querySelector('dialog button'); 
-// Get the rest of the elements 
-const linkUrlInput = document.getElementById('link-url-input'); 
-const linkName = document.getElementById('link-name');
-const saveLinkBtn = document.getElementById('save-link-btn');
-const linksContainer = document.getElementById('links-container');
-
-let url = linkUrlInput.value;
-let name = linkName.value;
+const addLinkBtn = document.getElementById("add-link-btn");
+// Get the close dialog button
+const closeDialogBtn = document.querySelector("dialog button");
+// Get the rest of the elements
+const linkUrlInput = document.getElementById("link-url-input");
+const linkName = document.getElementById("link-name");
+const saveLinkBtn = document.getElementById("save-link-btn");
+const linksContainer = document.getElementById("links-container");
 
 // Open dialog when add link button is clicked
-addLinkBtn.addEventListener('click', () => {
-    dialog.showModal();
+addLinkBtn.addEventListener("click", () => {
+  dialog.showModal();
 });
 
-// Close dialog when close button is clicked 
-closeDialogBtn.addEventListener('click', () => {
-    dialog.close();
+// Close dialog when close button is clicked
+closeDialogBtn.addEventListener("click", () => {
+  dialog.close();
 });
 
 // Function to add a link to linksContainer
 function addLink(url, name) {
-    const linkAnchor = document.createElement('a');
-    linkAnchor.classList.add('link-element');
-    linkAnchor.href = url;
-    linkAnchor.textContent = name || url;
-    linksContainer.appendChild(linkAnchor);
+  const linkAnchor = document.createElement("a");
+  linkAnchor.classList.add("link-element");
+  linkAnchor.href = url;
+  linkAnchor.textContent = name || url;
+  linksContainer.appendChild(linkAnchor);
 }
 
 // Function to enable add button if input conditions are met
-function enableAddBtn(url, name) {
+function enableAddBtn() {
+  const url = linkUrlInput.value;
+  const name = linkName.value;
 
-    // Check if inputs have value and enable button if they have
-    if(url && name) {
-        saveLinkBtn.disabled = false
-    } else {
-        saveLinkBtn.disabled = true
-    }
+  // Check if inputs have value and enable button if they have
+  if (url && name) {
+    saveLinkBtn.disabled = false;
+  } else {
+    saveLinkBtn.disabled = true;
+  }
 }
 
-// Listen for input changes 
-linkUrlInput.addEventListener('input', enableAddBtn);
-linkName.addEventListener('input', enableAddBtn);
+// Listen for input changes
+linkUrlInput.addEventListener("input", enableAddBtn);
+linkName.addEventListener("input", enableAddBtn);
 
 // Event listener for adding a link when the button is clicked
-saveLinkBtn.addEventListener('click', () => {
+saveLinkBtn.addEventListener("click", () => {
+    const url = linkUrlInput.value;
+    const name = linkName.value;
 
-    if (url && name) {
-        addLink(url, name);
-        // Call local storage save 
-        saveLinksLocal(url, name);
+  if (url && name) {
+    addLink(url, name);
+    // Call local storage save
+    saveLinksLocal(url, name);
 
-        // Empty input fields 
-        linkUrlInput.value = '';
-        linkName.value = '';
-    } else {
-    }
+    // Empty input fields
+    linkUrlInput.value = "";
+    linkName.value = "";
+  } else {
+  }
 });
 
-// Function to save to local storage 
+// Function to save to local storage
 function saveLinksLocal(url, name) {
-    // Get saved links or create new array if none
-    const linkArray = JSON.parse(localStorage.getItem('linkItem')) || []; 
+  // Get saved links or create new array if none
+  const linkArray = JSON.parse(localStorage.getItem("linkItem")) || [];
 
-    // Push link 
-    linkArray.push({url, name}); 
+  // Push link
+  linkArray.push({ url, name });
 
-    // Save array in local storage 
-    localStorage.setItem('linkItem', JSON.stringify(linkArray)); 
+  // Save array in local storage
+  localStorage.setItem("linkItem", JSON.stringify(linkArray));
 }
 
-// Function to show the links from local storage 
+// Function to show the links from local storage
 function getStoredLinks() {
-    const storedLinks = JSON.parse(localStorage.getItem('linkItem')) || []; 
+  const storedLinks = JSON.parse(localStorage.getItem("linkItem")) || [];
 
-    storedLinks.forEach(link => {
-        addLink(link.url, link.name);
-    });
+  storedLinks.forEach((link) => {
+    addLink(link.url, link.name);
+  });
 }
 
 enableAddBtn();
