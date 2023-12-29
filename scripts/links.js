@@ -113,3 +113,14 @@ function saveLinksLocal(url, name) {
     // Save array in local storage 
     localStorage.setItem('linkItem', JSON.stringify(linkArray)); 
 }
+
+// Function to show the links from local storage 
+function getStoredLinks() {
+    const storedLinks = JSON.parse(localStorage.getItem('linkItem')) || []; 
+
+    storedLinks.forEach(link => {
+        addLink(link.url, link.name);
+    })
+}
+
+getStoredLinks();
