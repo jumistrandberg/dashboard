@@ -49,6 +49,7 @@ function addLink(url, name) {
     removeIcon.addEventListener("click", () => {
       linkDiv.remove();
       removeLinkLocal(url);
+
     });
   }
 
@@ -114,7 +115,7 @@ function removeLinkLocal(url, name) {
   // Filter and remove relevant link
   storedLinks = storedLinks.filter((link) => link.url !== url);
 
-  localStorage.setItem("storedLinks", JSON.stringify(storedLinks));
+  localStorage.setItem("linkItem", JSON.stringify(storedLinks));
 }
 enableAddBtn();
 getStoredLinks();
