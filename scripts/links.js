@@ -23,22 +23,34 @@ closeDialogBtn.addEventListener("click", () => {
 
 // Function to add a link to linksContainer
 function addLink(url, name) {
-  // Create links
-  const linkAnchor = document.createElement("a");
-  linkAnchor.classList.add("link-element");
-  linkAnchor.href = url;
-  linkAnchor.textContent = name || url;
-
-  // Create remove link icon
-  const removeIcon = document.createElement("i");
-  removeIcon.classList.add("fas", "fa-times", "remove-icon");
-  removeIcon.setAttribute("title", "Remove Link");
-
-  // Append links to container div and icon to links
-  linksContainer.appendChild(linkAnchor);
-  linksContainer.appendChild(removeIcon);
-  linksContainer.appendChild(linksContainer);
-}
+    // Create link container div
+    const linkDiv = document.createElement("div");
+    linkDiv.classList.add("link-container");
+  
+    // Create link anchor
+    const linkAnchor = document.createElement("a");
+    linkAnchor.classList.add("link-element");
+    linkAnchor.href = url;
+    linkAnchor.textContent = name || url;
+  
+    // Create remove link icon
+    const removeIcon = document.createElement("i");
+    removeIcon.classList.add("fas", "fa-times", "remove-icon");
+    removeIcon.setAttribute("title", "Remove Link");
+  
+    // Append link and remove icon to the link container
+    linkDiv.appendChild(linkAnchor);
+    linkDiv.appendChild(removeIcon);
+  
+    // Append the link container to the linksContainer
+    linksContainer.appendChild(linkDiv);
+  
+    // Listen for clicks on remove icon and remove the link
+    removeIcon.addEventListener("click", () => {
+      linkDiv.remove();
+      removeLinkLocal(url);
+    });
+  }
 
 // Function to enable add button if input conditions are met
 function enableAddBtn() {
@@ -95,21 +107,14 @@ function getStoredLinks() {
   });
 }
 
-// Listen for clicks on remove icon and remove 
-removeIcon.addEventListener('click', () => {
-    linksContainer.remove(); 
-    removeLinkLocal();
-});
-
-// Function to remove link 
+// Function to remove link
 function removeLinkLocal(url, name) {
-    // Parse to object
-    let storedLinks = JSON.parse(localStorage.getItem('linkItem')) || []; 
-    // Filter and remove relevant link 
-    storedLinks = storedLinks.filter((link) => link.url !== url)
+  // Parse to object
+  let storedLinks = JSON.parse(localStorage.getItem("linkItem")) || [];
+  // Filter and remove relevant link
+  storedLinks = storedLinks.filter((link) => link.url !== url);
 
-    localStorage.setItem("storedLinks", JSON.stringify(storedLinks));
-
+  localStorage.setItem("storedLinks", JSON.stringify(storedLinks));
 }
 enableAddBtn();
 getStoredLinks();
