@@ -1,62 +1,3 @@
-// // Dialog functionality 
-// // Get the dialog
-// const dialog = document.querySelector('dialog');
-// // Get the open dialog button (add link)
-// const addLinkBtn = document.getElementById('add-link-btn'); 
-// // Get the close dialog button 
-// const closeDialogBtn = document.querySelector('dialog button'); 
-
-// // Open dialog when add link button is clicked
-// addLinkBtn.addEventListener('click', () => {
-//     dialog.showModal();
-// });
-
-// // Close dialog when close button is clicked 
-// closeDialogBtn.addEventListener('click', () => {
-//     dialog.close();
-// });
-
-// // Add links functionality 
-// // Get the elements
-// const linkUrlInput = document.getElementById('link-url-input'); 
-// const linkName = document.getElementById('link-name');
-// const saveLinkBtn = document.getElementById('save-link-btn');
-// const linksContainer = document.getElementById('links-container');
-
-// // Add link to links container
-// function addLink(url, name) {
-//     const linkAnchor = document.createElement('a'); 
-//     linkAnchor.href = url;
-//     linkAnchor.textContent = name || url; 
-//     linksContainer.appendChild(linkAnchor);
-// }
-
-// // Save the links when 'add' button is clicked 
-// saveLinkBtn.addEventListener('click', () => {
-//     const url = linkUrlInput.value; 
-//     const name = linkName.value; 
-
-//     if(url && name) {
-//         addLink(url, name); 
-//         // Save to local storage
-//         // Get if saved, or create empty array
-//         let savedLinks = JSON.parse(localStorage.getItem('savedLinks')) || [];
-//         savedLinks.push({url, name}); 
-//         localStorage.setItem('savedLinks', JSON.stringify(savedLinks));
-
-//         // Close and reset
-//         dialog.close(); 
-//         linkUrlInput.value = '';
-//         linkName.value = '';
-//     } else {
-//         saveLinkBtn.disabled = true;
-//         const errorMessage = document.createElement('p'); 
-//         errorMessage.textContent = 'Please enter a valid URL';
-//         dialog.appendChild(errorMessage); 
-//     }
-    
-// })
-
 // Dialog functionality 
 // Get the dialog
 const dialog = document.querySelector('dialog');
@@ -94,16 +35,18 @@ function addLink(url, name) {
 
 // Function to enable add button if input conditions are met
 function enableAddBtn(url, name) {
-    // Regular expression pattern for URL validation
-    const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
 
     // Check if inputs have value and enable button if they have
-    if(url && name && url.match(urlPattern)) {
+    if(url && name) {
         saveLinkBtn.disabled = false
     } else {
         saveLinkBtn.disabled = true
     }
 }
+
+// Listen for input changes 
+linkUrlInput.addEventListener('input', enableAddBtn);
+linkName.addEventListener('input', enableAddBtn);
 
 // Event listener for adding a link when the button is clicked
 saveLinkBtn.addEventListener('click', () => {
@@ -140,7 +83,6 @@ function getStoredLinks() {
         addLink(link.url, link.name);
     });
 }
-
 
 enableAddBtn();
 getStoredLinks();
