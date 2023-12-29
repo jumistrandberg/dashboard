@@ -15,3 +15,10 @@ addLinkBtn.addEventListener('click', () => {
 closeDialogBtn.addEventListener('click', () => {
     dialog.close();
 });
+
+// Add links functionality 
+// Get the elements
+const linkUrlInput = document.getElementById('link-url-input'); 
+const linkName = document.getElementById('link-name');
+const saveLinkBtn = document.getElementById('save-link-btn');
+
