@@ -81,14 +81,22 @@ closeDialogBtn.addEventListener('click', () => {
     dialog.close();
 });
 
-
-// Add link to links container
+// Function to add a link to linksContainer
 function addLink(url, name) {
-    const linkAnchor = document.createElement('a'); 
+    const linkAnchor = document.createElement('a');
     linkAnchor.classList.add('link-element');
     linkAnchor.href = url;
-    linkAnchor.textContent = name || url; 
+    linkAnchor.textContent = name || url;
     linksContainer.appendChild(linkAnchor);
 }
 
+// Event listener for adding a link when the button is clicked
+saveLinkBtn.addEventListener('click', () => {
+    const url = linkUrlInput.value;
+    const name = linkName.value;
+
+    if (url && name) {
+        addLink(url, name);
+    }
+});
 
