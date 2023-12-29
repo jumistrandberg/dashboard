@@ -21,4 +21,30 @@ closeDialogBtn.addEventListener('click', () => {
 const linkUrlInput = document.getElementById('link-url-input'); 
 const linkName = document.getElementById('link-name');
 const saveLinkBtn = document.getElementById('save-link-btn');
+const linksContainer = document.getElementById('links-container');
 
+// Add link to links container
+function addLink(url, name) {
+    const linkAnchor = document.createElement('a'); 
+    linkAnchor.href = url;
+    linkAnchor.textContent = name || url; 
+    linksContainer.appendChild(linkAnchor);
+}
+
+// Save the links when 'add' button is clicked 
+saveLinkBtn.addEventListener('click', () => {
+    const url = linkUrlInput.value.trim(); 
+    const name = linkName.value.trim(); 
+
+    if(url !== '') {
+        addLink(url, name); 
+        // Save to local storage
+        localStorage.setItem()
+        dialog.close(); 
+        linkUrlInput.value = '';
+        linkName.value = '';
+    } else {
+        bajs jag vet inte
+    }
+    
+})
