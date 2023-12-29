@@ -49,6 +49,7 @@ saveLinkBtn.addEventListener('click', () => {
         linkUrlInput.value = '';
         linkName.value = '';
     } else {
+        saveLinkBtn.disabled = true;
         const errorMessage = document.createElement('p'); 
         errorMessage.textContent = 'Please enter a valid URL';
         dialog.appendChild(errorMessage); 
