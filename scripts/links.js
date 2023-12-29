@@ -95,5 +95,21 @@ function getStoredLinks() {
   });
 }
 
+// Listen for clicks on remove icon and remove 
+removeIcon.addEventListener('click', () => {
+    linksContainer.remove(); 
+    removeLinkLocal();
+});
+
+// Function to remove link 
+function removeLinkLocal(url, name) {
+    // Parse to object
+    let storedLinks = JSON.parse(localStorage.getItem('linkItem')) || []; 
+    // Filter and remove relevant link 
+    storedLinks = storedLinks.filter((link) => link.url !== url)
+
+    localStorage.setItem("storedLinks", JSON.stringify(storedLinks));
+
+}
 enableAddBtn();
 getStoredLinks();
