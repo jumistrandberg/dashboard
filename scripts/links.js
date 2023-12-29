@@ -39,12 +39,19 @@ saveLinkBtn.addEventListener('click', () => {
     if(url !== '') {
         addLink(url, name); 
         // Save to local storage
-        localStorage.setItem()
+        // Get if saved, or create empty array
+        let savedLinks = JSON.parse(localStorage.getItem('savedLinks')) || [];
+        savedLinks.push({url, name}); 
+        localStorage.setItem('savedLinks', JSON.stringify);
+
+        // Close and reset
         dialog.close(); 
         linkUrlInput.value = '';
         linkName.value = '';
     } else {
-        bajs jag vet inte
+        const errorMessage = document.createElement('p'); 
+        errorMessage.textContent = 'Please enter a valid URL';
+        dialog.appendChild(errorMessage); 
     }
     
 })
