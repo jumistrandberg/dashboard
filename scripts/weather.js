@@ -28,7 +28,8 @@ async function checkWeather(city) {
     console.log(apiKey);
     
     const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);
-
+    console.log(response);
+    
     const data = await response.json();
 
     document.querySelector(".city").innerHTML = data.name;
@@ -55,7 +56,6 @@ searchBtn.addEventListener("click", () =>{
     searchBox.value = ""
 });
 
-checkWeather();
 getApiKey();
 
 })
