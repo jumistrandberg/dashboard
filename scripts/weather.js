@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Get the elements 
-const searchBox = document.querySelector(".search input");
-const searchBtn = document.querySelector(".search button");
-const weatherIcon = document.querySelector(".weather-icon");
+const searchBox = document.querySelector('.search input');
+const searchBtn = document.querySelector('.search button');
+const weatherIcon = document.querySelector('.weather-icon');
 
 // Get the base URL 
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?&units=metric&q=";
+const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?&units=metric&q=';
 
 // Function to get the API key 
 async function getApiKey() {
@@ -29,30 +29,30 @@ async function checkWeather(city) {
     const data = await response.json();
 
     // Change the HTML elements based on the data from the weather API 
-    document.querySelector(".city").innerHTML = data.name;
-    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
-    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
-    document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+    document.querySelector('.city').innerHTML = data.name;
+    document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + '°C';
+    document.querySelector('.humidity').innerHTML = data.main.humidity + '%';
+    document.querySelector('.wind').innerHTML = data.wind.speed + 'km/h';
 
     // Check which weather and pick right img to show 
-    if(data.weather[0].main == "Clouds"){
-        weatherIcon.src = "imgs/clouds.png"
-    } else if (data.weather[0].main == "Clear") {
-        weatherIcon.src = "imgs/clear.png"
-    } else if (data.weather[0].main == "Drizzle") {
-        weatherIcon.src = "imgs/drizzle.png"
-    } else if (data.weather[0].main == "Mist") {
-        weatherIcon.src = "imgs/mist.png"
-    } else if (data.weather[0].main == "Snow") {
-        weatherIcon.src = "imgs/snow.png"
+    if(data.weather[0].main == 'Clouds'){
+        weatherIcon.src = 'imgs/clouds.png'
+    } else if (data.weather[0].main == 'Clear') {
+        weatherIcon.src = 'imgs/clear.png'
+    } else if (data.weather[0].main == 'Drizzle') {
+        weatherIcon.src = 'imgs/drizzle.png'
+    } else if (data.weather[0].main == 'Mist') {
+        weatherIcon.src = 'imgs/mist.png'
+    } else if (data.weather[0].main == 'Snow') {
+        weatherIcon.src = 'imgs/snow.png'
     }
     
 }
 
 // Listen for clicks on search for the city 
-searchBtn.addEventListener("click", () =>{
+searchBtn.addEventListener('click', () =>{
     checkWeather(searchBox.value);
-    searchBox.value = ""
+    searchBox.value = ''
 });
 
 getApiKey();
