@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const currencyFrom = document.getElementById('currency-from'); 
     const currencyTo = document.getElementById('currency-to');
     const currencyAmount = document.getElementById('currency-amount'); 
-    
+    const currencyResult = document.getElementById('currency-result');
+
   // endpoint to convert
   const endpoint = "convert";
 
