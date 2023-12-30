@@ -18,4 +18,13 @@ async function getApiKey() {
     }
 }
 
+// Function to get the weather and display it on dashboard 
+async function checkWeather(city) {
+    //Get the key and URL 
+    const apiKey = await getApiKey(); 
+    console.log(apiKey);
+}
+
+
+checkWeather();
 getApiKey();
