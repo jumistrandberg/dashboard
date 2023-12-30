@@ -24,33 +24,32 @@ async function getApiKey() {
 // Function to get the weather and display it on dashboard 
 async function checkWeather(city) {
     //Get the key and URL 
-    const apiKey = await getApiKey(); 
-    console.log(apiKey);
-    
-    const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);
-    console.log(response);
-    
+    const apiKey = await getApiKey();     
+    const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);    
     const data = await response.json();
 
+    // Change the HTML elements based on the data from the weather API 
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°C";
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
 
+    // Check which weather and pick right img to show 
     if(data.weather[0].main == "Clouds"){
-        weatherIcon.src = "images/clouds.png"
+        weatherIcon.src = "imgs/clouds.png"
     } else if (data.weather[0].main == "Clear") {
-        weatherIcon.src = "images/clear.png"
+        weatherIcon.src = "imgs/clear.png"
     } else if (data.weather[0].main == "Drizzle") {
-        weatherIcon.src = "images/drizzle.png"
+        weatherIcon.src = "imgs/drizzle.png"
     } else if (data.weather[0].main == "Mist") {
-        weatherIcon.src = "images/mist.png"
+        weatherIcon.src = "imgs/mist.png"
     } else if (data.weather[0].main == "Snow") {
-        weatherIcon.src = "images/snow.png"
+        weatherIcon.src = "imgs/snow.png"
     }
     
 }
 
+// Listen for clicks on search for the city 
 searchBtn.addEventListener("click", () =>{
     checkWeather(searchBox.value);
     searchBox.value = ""
@@ -59,3 +58,34 @@ searchBtn.addEventListener("click", () =>{
 getApiKey();
 
 })
+
+// Function to get users location to display local weather 
+function userLocation() {
+    navigator.geolocation.getCurrentPosition(
+        async function(position) {
+            const long = position.coords.longitude; 
+            const lat = position.coords.latitude;
+
+            // Get the city based on coords 
+            const apiKey = getApiKey(); 
+            const reverseGeoUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${apiKey}`;
+            
+            try {
+                const response = await fetch(reverseGeoUrl);
+                if(response.ok) {
+                    const data = await response.json; 
+                    const city = data[0].name; 
+
+                    checkWeather(city); 
+                } else {
+                    console.log(`Error: ${response.status}`);
+                }
+            } catch {
+                console.log(`Error ${response.status}`)
+            }
+        }
+    )
+}
+
+userLocation();
+
