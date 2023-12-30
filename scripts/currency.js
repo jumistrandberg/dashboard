@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const apiKey = await getApiKey();
       const fromCurrency = currencyFrom.value;
       const toCurrency = currencyTo.value;
-      const amount = currencyAmount.value;
+      const amount = parseFloat(currencyAmount.value);
   
       if (fromCurrency && toCurrency && amount) {
         try {
