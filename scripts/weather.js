@@ -11,7 +11,8 @@ async function getApiKey() {
     const response = await fetch('./apiKeys.json')
     if(response.ok) {
         const keyArray = await response.json(); 
-        console.log(keyArray);
+        const weatherApiKey = keyArray[0].weather;
+        console.log(weatherApiKey);
     }
 }
 
