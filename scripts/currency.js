@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Get the elements
-    const currencyFrom = document.getElementById('currency-from'); 
-    const currencyTo = document.getElementById('currency-to');
-    const currencyAmount = document.getElementById('currency-amount'); 
-    const currencyResult = document.getElementById('currency-result');
+  const currencyFrom = document.getElementById("currency-from");
+  const currencyTo = document.getElementById("currency-to");
+  const currencyAmount = document.getElementById("currency-amount");
+  const currencyResult = document.getElementById("currency-result");
 
   // endpoint to convert
   const endpoint = "convert";
 
   // Get the base URL
-  const url = `https://api.exchangeratesapi.io/v1/${endpoint}?access_key=${apiKey}&from=${from}&to=${to}&amount=${amount}`; //   endpoint for conversion
+  const url = `https://api.exchangeratesapi.io/v1/`;
 
   // Fetch the API key
   async function getApiKey() {
@@ -22,6 +22,34 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log(`Error: ${response.status}`);
     }
   }
+
+  //   Function to get the exchange result and display
+  async function convertCurrency() {
+    // Get the key
+    const apiKey = await getApiKey();
+
+    // Get the user values 
+    const fromCurrency = currencyFrom.value;
+    const toCurrency = currencyTo.value;
+    const amount = currencyAmount.value;
+
+    const response = await fetch(
+      `${endpoint}?access_key=${apiKey}&from=${fromCurrency}&to=${toCurrency}&amount=${amount}`
+    );
+    const data = await response.json();
+
+    if (response.ok) {
+      const jsonResult = await response.json();
+      const result = jsonResult.result;
+      currencyResult.textContent = result;
+      console.log(result);
+    } else {
+      console.log(`Error: ${response.status}`);
+    }
+  }
+
+  // Listen for input in
+  
 
   //   const access_key = 'API_KEY'; // Replace 'API_KEY' with your actual API key
 
@@ -50,5 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //   performConversion();
 
+  convertCurrency();
   getApiKey();
 });
