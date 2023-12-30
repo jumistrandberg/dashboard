@@ -12,7 +12,9 @@ async function getApiKey() {
     if(response.ok) {
         const keyArray = await response.json(); 
         const weatherApiKey = keyArray[0].weather;
-        console.log(weatherApiKey);
+        return weatherApiKey;
+    } else {
+        console.log(`Error: ${response.status}`);
     }
 }
 
