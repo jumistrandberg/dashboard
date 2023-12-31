@@ -12,7 +12,7 @@ displayCaughtPoke()
 
 // Url to the national dex
 const url = "https://pokeapi.co/api/v2/pokemon-species/";
-const randomPokeNum = Math.floor(Math.random() * 1025 + 1);
+let randomPokeNum = Math.floor(Math.random() * 1025 + 1);
 // The name of the random pokemon
 let pokeName;
 
@@ -47,14 +47,9 @@ function createCatchBtn() {
 // Catch condition function
 function catchCondition() {
   const catchRate = poke.capture_rate;
+
   // Generate the balls number between 0 and 255
   const randomBallNum = Math.floor(Math.random() * 256);
-
-  // Check if party is full
-  if(caughtPoke.length >= 6) {
-    pokeStatusText.innerText = 'Your party is full! You need to release a party member before you can add another!';
-    return
-} 
 
   // Check if capture is successful
   if (catchRate <= randomBallNum) {
@@ -63,12 +58,17 @@ function catchCondition() {
     pokeStatusText.innerText = pokeName + " was added to your party!";
       // Save updated caughtPoke to localStorage
       localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
+      catchBtn.disabled = true;
+
   } else {
     // The pokemon escapes on fail
     pokeStatusText.innerText = pokeName + " got away!";
     pokeCard.appendChild(pokeStatusText);
     catchBtn.disabled = true;
+
   }
+  newPoke()
+  catchBtn.remove();
 }
 
 // Function to display the party and add remove icon
@@ -91,19 +91,42 @@ function displayCaughtPoke() {
         if (index !== -1) {
           caughtPoke.splice(index, 1);
           displayCaughtPoke();
-          updateCatchButton();
           localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
         }
       });
     });
   }
-  
-  function updateCatchButton() {
-    if (caughtPoke.length >= 6) {
-      catchBtn.disabled = true; // Disable catch button
-    } else {
-      catchBtn.disabled = false; // Enable catch button
-    }
+
+  function newPoke() {
+    const newPokeBtn = document.createElement('button');
+    newPokeBtn.textContent = 'Find more Pokemon';
+
+    pokeCard.append(newPokeBtn);
+
+    newPokeBtn.addEventListener('click', () => {
+      randomPokeNum = Math.floor(Math.random() * 1025 + 1); // Generate a new random Pokemon number
+
+      randomPokeGenerator();
+      newPokeBtn.remove();
+    })
   }
+
+  // Come back to better functionality maybe
+
+  // function noPokeTimer() {
+  //   // Disable catch button during the timer
+  //   catchBtn.disabled = true;
+  //   pokeStatusText.innerText = 'No Pokemon here...';
+
+  
+  //   // Set a random duration between 10 seconds to 5 minutes
+  //   const randomDuration = Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000;
+  
+  //   // Wait for the random duration before enabling the catch button again
+  //   setTimeout(() => {
+  //     randomPokeNum = Math.floor(Math.random() * 1025 + 1); // Generate a new random Pokemon number
+  //     catchBtn.disabled = false;
+  //   }, randomDuration);
+  // }
 
 randomPokeGenerator();
