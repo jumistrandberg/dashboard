@@ -47,18 +47,20 @@ function createCatchBtn() {
 // Catch condition function
 function catchCondition() {
   const catchRate = poke.capture_rate;
-
   // Generate the balls number between 0 and 255
   const randomBallNum = Math.floor(Math.random() * 256);
 
-  console.log(catchRate);
-  console.log(randomBallNum);
+  // Check if party is full
+  if(caughtPoke.length >= 6) {
+    pokeStatusText.innerText = 'Your party is full! You need to release a party member before you can add another!';
+    return
+} 
 
   // Check if capture is successful
   if (catchRate <= randomBallNum) {
     caughtPoke.push(pokeName);
+    displayCaughtPoke();
     pokeStatusText.innerText = pokeName + " was added to your party!";
-    pokeBox.innerHTML = caughtPoke.join(', ');
       // Save updated caughtPoke to localStorage
       localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
   } else {
@@ -89,12 +91,19 @@ function displayCaughtPoke() {
         if (index !== -1) {
           caughtPoke.splice(index, 1);
           displayCaughtPoke();
+          updateCatchButton();
           localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
         }
       });
     });
   }
   
-
+  function updateCatchButton() {
+    if (caughtPoke.length >= 6) {
+      catchBtn.disabled = true; // Disable catch button
+    } else {
+      catchBtn.disabled = false; // Enable catch button
+    }
+  }
 
 randomPokeGenerator();
