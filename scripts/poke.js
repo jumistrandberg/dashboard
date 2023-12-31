@@ -7,7 +7,8 @@ let poke;
 
 // Get the caught poke from local storage 
 let caughtPoke = JSON.parse(localStorage.getItem('caughtPoke')) || [];
-pokeBox.innerHTML = caughtPoke.join(", ");
+// Show the party 
+displayCaughtPoke()
 
 // Url to the national dex
 const url = "https://pokeapi.co/api/v2/pokemon-species/";
@@ -67,5 +68,33 @@ function catchCondition() {
     catchBtn.disabled = true;
   }
 }
+
+// Function to display the party and add remove icon
+function displayCaughtPoke() {
+    pokeBox.innerHTML = ""; 
+    caughtPoke.forEach((poke) => {
+      const pokeDiv = document.createElement("div");
+      pokeDiv.textContent = poke;
+      
+      const removeIcon = document.createElement("i");
+      removeIcon.classList.add("fas", "fa-times", "remove-icon");
+      removeIcon.setAttribute("title", "Remove Pokemon");
+      pokeDiv.appendChild(removeIcon);
+  
+      pokeBox.appendChild(pokeDiv);
+  
+      // Listen for clicks on remove icon and remove the Pokemon
+      removeIcon.addEventListener("click", () => {
+        const index = caughtPoke.indexOf(poke);
+        if (index !== -1) {
+          caughtPoke.splice(index, 1);
+          displayCaughtPoke();
+          localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
+        }
+      });
+    });
+  }
+  
+
 
 randomPokeGenerator();
