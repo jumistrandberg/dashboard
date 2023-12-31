@@ -1,5 +1,8 @@
-// Get button 
+// Get elements
 const bgBtn = document.getElementById('bg-btn'); 
+const bgSearchInput = document.getElementById('bg-search-input'); 
+const bgSearchBtn = document.getElementById('bg-search-btn'); 
+
 
 // Function to get the API key 
 async function getApiKey() {
@@ -23,12 +26,14 @@ async function randomImg(search) {
     try {
         const apiKey = await getApiKey(); 
         const url = `https://api.unsplash.com/photos/random?query=${search}&client_id=${apiKey}`;
-        
         const response = await fetch(url);
+
         if (response.ok) {
             const data = await response.json();
-            // Handle the received data as needed (e.g., setting image source on the page)
-            console.log('Received image data:', data);
+            const imgUrl = data.urls.regular;
+            // set as bg 
+            document.body.style.backgroundImage = `url('${imgUrl}')`; 
+
         } else {
             console.log(`Error fetching random image: ${response.status}`);
         }
@@ -37,5 +42,10 @@ async function randomImg(search) {
     }
 }
 
+bgSearchBtn.addEventListener('click', (e) => {
+    const search = bgSearchInput.value; 
+    randomImg(search);
+    this.value = ''; 
+})
 // Call randomImg function with a search query (replace 'yourSearchQuery' with an actual search query)
-randomImg('yourSearchQuery');
+randomImg();
