@@ -51,23 +51,24 @@ section {
 }
 
 .search {
-    width: 80%;
+    width: 70%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .search input {
     border: 0;
     outline: 0;
-    background: #ebfffc;
+    background: whitesmoke;
     border-radius: 2rem;
     padding-left: 5%;
+    margin: 0 5%;
 }
 
 .search button {
     border: 0;
     outline: 0;
-    background: #ebfffc;
+    background: whitesmoke;
     cursor: pointer;
     padding: 2%;
     border-radius: 50%;
@@ -84,13 +85,9 @@ section {
     max-height: 100%;
 }
 
-.weather h1{
-    font-size: 80px;
-    font-weight: 500;
-}
 
-.weather h2{
-    font-size: 45px;
+.weather p{
+    font-size: 2rem;
     font-weight: 400;
     margin-top: -10px;
 }
@@ -110,11 +107,13 @@ section {
 }
 
 .col img {
-    width: 40px;
+    width: 2rem;
     margin-right: 10px;
 }
-
+.col p {
+    font-size: 0.8rem;
+}
 .humidity, .wind {
-    font-size: 28px;
+    font-size: 0.8rem;
     margin-top: -6px;
 }
