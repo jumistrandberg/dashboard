@@ -11,18 +11,18 @@ async function getApiKey() {
             return bgApiKey;
         } else {
             console.log(`Error: ${response.status}`);
-            return null; // Return a default value or handle this error case
+            return null;
         }
     } catch (error) {
         console.error('Error fetching API key:', error);
-        return null; // Return a default value or handle this error case
+        return null;
     }
 }
 
 async function randomImg(search) { 
     try {
         const apiKey = await getApiKey(); 
-        const url = `https://api.unsplash.com/photos/random?query=${search}&client_id=${apiKey};`;
+        const url = `https://api.unsplash.com/photos/random?query=${search}&client_id=${apiKey}`;
         
         const response = await fetch(url);
         if (response.ok) {
