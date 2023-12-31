@@ -47,5 +47,11 @@ https://jumistrandberg.netlify.app/
 Email: jumi.strandberg@chasacademy.se
 
 ## Evaluation:
+###  General and Workflow: 
+I did not perform well on this project. My persisting weakness is planning and time management. I am also doing poorly with troubleshooting and I find it difficult to read code. If things do not work on first try for me I become disoriented, hence I should try to plan projects in the future.
+
+There is little consistency between the script files 
+
 ### HTML: 
+- I was not paying much attention to the HTML, and created elements after what I needed for the scripts. In hindsight it felt like a roundabout way of working, and I 
 
