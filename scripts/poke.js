@@ -5,12 +5,15 @@ let pokeStatusText = document.getElementById("poke-status-text");
 let catchBtn;
 let poke;
 
+// Get the caught poke from local storage 
+let caughtPoke = JSON.parse(localStorage.getItem('caughtPoke')) || [];
+pokeBox.innerHTML = caughtPoke.join(", ");
+
 // Url to the national dex
 const url = "https://pokeapi.co/api/v2/pokemon-species/";
 const randomPokeNum = Math.floor(Math.random() * 1025 + 1);
 // The name of the random pokemon
 let pokeName;
-let caughtPoke = [];
 
 async function randomPokeGenerator() {
   const response = await fetch(url + randomPokeNum);
@@ -53,7 +56,10 @@ function catchCondition() {
   // Check if capture is successful
   if (catchRate <= randomBallNum) {
     caughtPoke.push(pokeName);
-    pokeBox.innerHTML = caughtPoke;
+    pokeStatusText.innerText = pokeName + " was added to your party!";
+    pokeBox.innerHTML = caughtPoke.join(', ');
+      // Save updated caughtPoke to localStorage
+      localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
   } else {
     // The pokemon escapes on fail
     pokeStatusText.innerText = pokeName + " got away!";
