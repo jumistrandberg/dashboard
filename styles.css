@@ -27,9 +27,10 @@ main {
 /* Clock  */
 .clock-section {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     background: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 /* Name  */
@@ -39,14 +40,14 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 1rem 0;
 }
 
 .name-section input {
     border: none;
     background: transparent;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: 0.2rem;
     padding: 1rem;
 

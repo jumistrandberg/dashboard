@@ -8,6 +8,13 @@ function currentTime() {
     const minutes = now.getMinutes(); 
     const seconds = now.getSeconds(); 
 
+    // Get date
+    const day = now.getDate(); 
+    const month = now.getMonth(); 
+    const year = now.getFullYear();
+
+    const dateString = `${day}/${month}/${year}`;
+
     const timeString = `${hour}:${minutes}:${seconds}`; 
 
     // Create div for clock first time only
@@ -19,8 +26,8 @@ function currentTime() {
         clockSection.appendChild(clockContainer); 
     }
 
-    // Put the time in its container
-    clockContainer.textContent = timeString;
+    // Put the time and date in container
+    clockContainer.innerHTML = `<div>${timeString}</div><div>${dateString}</div>`;
 }
 
 // Call every second
