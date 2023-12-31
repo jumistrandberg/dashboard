@@ -16,69 +16,70 @@
         <input type="text" id="nameTextBox" value="Click to enter your name" />
       </section>
 
-      <!-- links  -->
-      <section class="links-section">
-        <button id="add-link-btn">Add link</button>
-
-        <dialog>
-          <input type="text" id="link-url-input" placeholder="URL..." />
-          <input type="text" id="link-name" placeholder="Name..." />
-          <button id="save-link-btn">Add</button>
-          <button id="dialog-close-btn">Close</button>
-        </dialog>
-
-        <div id="links-container"></div>
-      </section>
-
-      <!-- weather  -->
-      <section class="weather-section">
-        <div class="weather-card">  
-          <div class="search">
-              <input type="text" placeholder="enter city name" spellcheck="false">
-              <button> 
-                  <img src="imgs/search.png" alt="magnifying glass search icon">
-              </button>
-          </div>
+      <div class="row-part"><!-- links  -->
+        <section class="links-section">
+          <button id="add-link-btn">Add link</button>
   
-          <div class="weather">
-              <img class="weather-icon" src="imgs/clear.png" alt="weather icon">
-              <p class="temp">Temperature</h1>
-              <p class="city">City</h2>
-          </div>
+          <dialog>
+            <input type="text" id="link-url-input" placeholder="URL..." />
+            <input type="text" id="link-name" placeholder="Name..." />
+            <button id="save-link-btn">Add</button>
+            <button id="dialog-close-btn">Close</button>
+          </dialog>
   
-          <div class="details">
-              <div class="col">
-                  <img src="imgs/humidity.png" alt="humidity icon">
-                  <div>
-                      <p class="humidity">%</p>
-                      <p>Humidity</p>
-                  </div>
-              </div>
+          <div id="links-container"></div>
+        </section>
   
-              <div class="col">
-                  <img src="imgs/wind.png" alt="wind icon">
-                  <div>
-                      <p class="wind">km/h</p>
-                      <p>Wind Speed</p>
-                  </div>
-          </div>
-      </div>
-      </section>
-      
-     
-
-    <!-- currency exchange  -->
-      <section class="poke-section">
-        <div id="poke-card">
-          <p id="poke-status-text"></p>
+        <!-- weather  -->
+        <section class="weather-section">
+          <div class="weather-card">  
+            <div class="search">
+                <input type="text" placeholder="enter city name" spellcheck="false">
+                <button> 
+                    <img src="imgs/search.png" alt="magnifying glass search icon">
+                </button>
+            </div>
+    
+            <div class="weather">
+                <img class="weather-icon" src="imgs/clear.png" alt="weather icon">
+                <p class="temp">Temperature</h1>
+                <p class="city">City</h2>
+            </div>
+    
+            <div class="details">
+                <div class="col">
+                    <img src="imgs/humidity.png" alt="humidity icon">
+                    <div>
+                        <p class="humidity">%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+    
+                <div class="col">
+                    <img src="imgs/wind.png" alt="wind icon">
+                    <div>
+                        <p class="wind">km/h</p>
+                        <p>Wind Speed</p>
+                    </div>
+            </div>
         </div>
+        </section>
         
-        <div id="poke-box"></div>
-      </section>
+      
+      <!-- currency exchange  -->
+        <section class="poke-section">
+          <div id="poke-card">
+            <p id="poke-status-text"></p>
+          </div>
+          
+          <div id="poke-box"></div>
+        </section>
+  
+        <section class="notes-section">
+          <textarea placeholder="Hmm..." name="notes" id="notes" cols="30" rows="10"></textarea>
+        </section></div>
 
-      <section class="notes-section">
-        <textarea placeholder="Hmm..." name="notes" id="notes" cols="30" rows="10"></textarea>
-      </section>
+      
 
       <section class="background-section">
         <input type="text" id="bg-search-input" placeholder="Keyword search">
