@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    checkWeather('Malmo');
 
 
 // Get the elements 

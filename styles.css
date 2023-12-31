@@ -27,23 +27,32 @@ main {
 
 .row-part > section {
     height: 60vh;
+    width: 22vw;
 }
 
 section {
     border: 1px solid blue;
+    height: 100%;
+    max-width: 60vh;
     background-color: rgba(220, 220, 220, 0.9); 
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Weather   */
 .weather-card {
     padding: 1rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .search {
-    width: 100%;
+    width: 80%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
 }
 
@@ -51,30 +60,28 @@ section {
     border: 0;
     outline: 0;
     background: #ebfffc;
-    padding: 10px 25px;
-    height: 3rem;
-    border-radius: 30px;
-    margin-right: 1rem;
-    font-size: 18px;
+    border-radius: 2rem;
+    padding-left: 5%;
 }
 
 .search button {
     border: 0;
     outline: 0;
     background: #ebfffc;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
     cursor: pointer;
+    padding: 2%;
+    border-radius: 50%;
+    display: flex;
 }
 
 .search button img {
-    width: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .weather-icon {
-    width: 170px;
-    margin-top: 30px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .weather h1{
