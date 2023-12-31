@@ -3,6 +3,7 @@ const pokeCard = document.getElementById("poke-card");
 const pokeBox = document.getElementById("poke-box");
 let pokeStatusText = document.getElementById("poke-status-text");
 let catchBtn;
+let poke;
 
 // Url to the national dex
 const url = "https://pokeapi.co/api/v2/pokemon-species/";
@@ -13,7 +14,7 @@ let caughtPoke = [];
 
 async function randomPokeGenerator() {
   const response = await fetch(url + randomPokeNum);
-  const poke = await response.json();
+  poke = await response.json();
   console.log(poke);
 
   // Get the name of the pokemon
@@ -24,7 +25,6 @@ async function randomPokeGenerator() {
 
   createCatchBtn();
   catchBtn.disabled = false;
-
 }
 
 // Create the catch button
@@ -41,15 +41,19 @@ function createCatchBtn() {
 }
 
 // Catch condition function
-function catchCondition(poke) {
+function catchCondition() {
   const catchRate = poke.capture_rate;
 
   // Generate the balls number between 0 and 255
   const randomBallNum = Math.floor(Math.random() * 256);
 
+  console.log(catchRate);
+  console.log(randomBallNum);
+
   // Check if capture is successful
   if (catchRate <= randomBallNum) {
-    console.log("caught");
+    caughtPoke.push(pokeName);
+    pokeBox.innerHTML = caughtPoke;
   } else {
     // The pokemon escapes on fail
     pokeStatusText.innerText = pokeName + " got away!";
