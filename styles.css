@@ -10,24 +10,74 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-}
-
-main {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-}
-
-.row-part {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 }
 
+main {
+    width: 100%;
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Clock  */
+.clock-section {
+    display: flex;
+    justify-content: space-between;
+    background: none;
+    font-size: 2rem;
+}
+
+/* Name  */
+.name-section {
+    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.name-section input {
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    padding: 1rem;
+
+}
+
+.name-section input:focus {
+    width: 100%;
+    border-radius: 3rem;
+}
+
+
+
+
+.row-part {
+    width: 100%;
+    border: 1px solid green;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5%;
+    padding: 0 10%;
+}
+
 .row-part > section {
-    height: 60vh;
-    width: 22vw;
+    height: 50vh;
+    width: calc((100% - 200px) / 4);    
+    margin: 1%; 
+    flex: 0 0 1;
+
 }
 
 section {
@@ -39,7 +89,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 /* Weather   */
