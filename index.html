@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Dashboard</title>
+    <link rel="stylesheet" href="./styles.css">
   </head>
   <body>
     <main>
@@ -30,39 +31,41 @@
       </section>
 
       <!-- weather  -->
-      <section class="weather-section"></section>
+      <section class="weather-section">
+        <div class="weather-card">  
+          <div class="search">
+              <input type="text" placeholder="enter city name" spellcheck="false">
+              <button> 
+                  <img src="imgs/search.png" alt="magnifying glass search icon">
+              </button>
+          </div>
+  
+          <div class="weather">
+              <img class="weather-icon" src="imgs/clear.png" alt="weather icon">
+              <p class="temp">Temperature</h1>
+              <p class="city">City</h2>
+          </div>
+  
+          <div class="details">
+              <div class="col">
+                  <img src="imgs/humidity.png" alt="humidity icon">
+                  <div>
+                      <p class="humidity">%</p>
+                      <p>Humidity</p>
+                  </div>
+              </div>
+  
+              <div class="col">
+                  <img src="imgs/wind.png" alt="wind icon">
+                  <div>
+                      <p class="wind">km/h</p>
+                      <p>Wind Speed</p>
+                  </div>
+          </div>
+      </div>
+      </section>
       
-      <div class="weather-card">  
-        <div class="search">
-            <input type="text" placeholder="enter city name" spellcheck="false">
-            <button> 
-                <img src="imgs/search.png" alt="magnifying glass search icon">
-            </button>
-        </div>
-
-        <div class="weather">
-            <img class="weather-icon" src="imgs/clear.png" alt="weather icon">
-            <p class="temp">Temperature</h1>
-            <p class="city">City</h2>
-        </div>
-
-        <div class="details">
-            <div class="col">
-                <img src="imgs/humidity.png" alt="humidity icon">
-                <div>
-                    <p class="humidity">%</p>
-                    <p>Humidity</p>
-                </div>
-            </div>
-
-            <div class="col">
-                <img src="imgs/wind.png" alt="wind icon">
-                <div>
-                    <p class="wind">km/h</p>
-                    <p>Wind Speed</p>
-                </div>
-        </div>
-    </div>
+     
 
     <!-- currency exchange  -->
       <section class="poke-section">

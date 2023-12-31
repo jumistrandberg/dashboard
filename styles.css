@@ -1,5 +1,3 @@
-.remove-icon{
-    width: 10px;
-    height: 10px;
-    background-color: black;
+section {
+    border: 1px solid blue;
 }
