@@ -10,6 +10,10 @@ body {
   overflow-x: hidden;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgba(240, 240, 240, 1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
 }
 
 main {

@@ -33,7 +33,8 @@ async function randomImg(search) {
             const imgUrl = data.urls.regular;
             // set as bg 
             document.body.style.backgroundImage = `url('${imgUrl}')`; 
-            document.body.style.backgroundSize = 'cover';
+            // document.body.style.backgroundSize = 'cover';
+            // document.body.style.backgroundPosition = 'center';
             
         } else {
             console.log(`Error fetching random image: ${response.status}`);
