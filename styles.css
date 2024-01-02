@@ -234,6 +234,10 @@ main .weather-section .weather-card .details {
 }
 
 /* Pokemon Catcher  */
+.poke-section {
+  background-color: blueviolet;
+}
+
 #poke-card {
   background-color: brown;
 }
