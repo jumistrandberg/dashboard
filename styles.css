@@ -240,6 +240,14 @@ main .weather-section .weather-card .details {
   width: 1rem;
 }
 
+
+.weather-icon {
+  width: 6rem;
+}
+
+.col img {
+  width: 2rem;
+}
 /* Pokemon Catcher  */
 .poke-card {
   width: 100%;
@@ -284,7 +292,7 @@ main .weather-section .weather-card .details {
 
 .bg-search {
   display: flex;
-  width: 55%;
+  max-width: 80%;
   margin-bottom: 1rem;
 }
 
