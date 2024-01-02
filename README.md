@@ -58,7 +58,7 @@ Overall this has been a messy project. But I hope that the struggle will turn to
 - I was not paying much attention to the HTML, and created elements after what I needed for the scripts. In hindsight it felt like a roundabout way of working. Passes W3 validator, so it will have to be acceptable.
 
 ### CSS:
-- Last priority. Abandoned for deadline.
+- Last priority. Could use refactoring and custom properties.
 
 ### Clock, Name and Notes 
 Grouping evaluation of the simpler scripts together as all points can be applied to all of these 

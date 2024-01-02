@@ -192,7 +192,6 @@ main .weather-section .weather-card .weather p {
 
 main .weather-section .weather-card .details {
   width: 100%;
-  border: 1px solid red;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -232,3 +231,5 @@ main .weather-section .weather-card .details {
 .search button img {
   width: 16px;
 }
+
+/* Pokemon Catcher  */
