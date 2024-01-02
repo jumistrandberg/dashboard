@@ -149,13 +149,12 @@ dialog {
   background-color: rgba(240, 240, 240, 0.9);
   border-radius: 2rem;
   padding: 1rem;
-  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-} */
+}
 
-/* dialog input[type="text"] {
+dialog input[type="text"] {
 
     width: calc(100% - 10%);
     padding: 0.8rem;
