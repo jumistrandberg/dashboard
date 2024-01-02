@@ -133,7 +133,7 @@ main .links-section .link-element {
 }
 
 #add-link-btn,
-dialog button, 
+dialog button,
 .poke-card button {
   cursor: pointer;
   padding: 1rem;
@@ -151,7 +151,7 @@ dialog button:hover,
 .poke-card button:hover {
   background-color: transparent;
   border: 1px solid rgb(26, 26, 26);
-  color:  rgb(26, 26, 26);
+  color: rgb(26, 26, 26);
 }
 
 dialog {
@@ -180,7 +180,7 @@ main .weather-section .weather-card {
   align-items: center;
 }
 
-main .weather-section .weather-card .weather{
+main .weather-section .weather-card .weather {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -205,14 +205,14 @@ main .weather-section .weather-card .details {
   border: 1px solid green;
   width: 110%;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .search input {
   max-width: 80%;
   border: 0;
   outline: 0;
-  background:rgba(240, 240, 240, 0.9);
+  background: rgba(240, 240, 240, 0.9);
   padding: 1rem;
   border-radius: 2rem;
   font-size: 1rem;
@@ -220,7 +220,8 @@ main .weather-section .weather-card .details {
   flex: 1;
 }
 
-.search button {
+.search button,
+#bg-search-btn {
   border: 0;
   outline: 0;
   background: rgba(240, 240, 240, 0.9);
@@ -228,10 +229,10 @@ main .weather-section .weather-card .details {
   height: 100%;
   cursor: pointer;
   flex: 1;
-
 }
 
-.search button img {
+.search button img,
+#bg-search-btn img {
   width: 1rem;
 }
 
@@ -260,4 +261,30 @@ main .weather-section .weather-card .details {
   flex-direction: column;
   line-height: 2rem;
   text-transform: capitalize;
+}
+
+/* Notes  */
+.notes-section textarea {
+  border: none;
+  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(240, 240, 240, 0.9);
+  padding: 1rem;
+}
+
+/* Background  */
+.background-section {
+  width: 100%;
+}
+
+.bg-search {
+
+}
+
+.background-section #bg-search-btn {
+  max-width: fit-content;
+  height: auto;
+  border-radius: 50%;
+  padding: 5px;
 }
