@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
 }
 
 body {
@@ -15,9 +16,7 @@ body {
   background-attachment: fixed;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
-
 main {
   width: 100%;
   height: 100%;
