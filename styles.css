@@ -39,7 +39,7 @@ main .row-part {
 
 main .row-part section {
   border: 1px solid salmon;
-  width: 22rem;
+  width: 20rem;
   background-color: rgba(128, 128, 128, 0.9);
   min-height: 30rem;
 }
