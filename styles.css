@@ -6,6 +6,7 @@
 }
 
 body {
+  padding-top: env(safe-area-inset-top);
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
