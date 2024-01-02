@@ -30,6 +30,7 @@ main .row-part {
   flex-wrap: wrap;
   justify-content: center;
   align-items: stretch;
+  gap: 1rem;
 }
 
 main .row-part section {
@@ -61,4 +62,16 @@ main .clock-section {
 main .clock-section div {
     padding: 0.5rem;
     font-size: 1.1rem;
+}
+
+/* Name  */
+main .name-section > * {
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    border: none;
+    border-radius: 2rem;
+    background: transparent;
+    color: rgba(240, 240, 240, 0.9);
 }
