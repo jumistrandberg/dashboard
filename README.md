@@ -35,7 +35,7 @@ To deploy website locally:
 
 
 You may also view the website via Netlify:
-https://jumistrandberg.netlify.app/
+https://jumi-dashboard.netlify.app/
 
 
 
