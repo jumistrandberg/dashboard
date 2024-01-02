@@ -157,7 +157,7 @@ dialog button:hover,
 dialog {
   border: none;
   margin: 30vh auto;
-  height: 20vh;
+  height: fit-content;
   max-width: 800px;
   background-color: rgba(240, 240, 240, 0.9);
   border-radius: 2rem;
