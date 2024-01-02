@@ -42,7 +42,7 @@ main .row-part {
 main .row-part section {
   width: 300px;
   background-color: rgba(128, 128, 128, 0.9);
-  min-height: 30rem;
+  min-height: 10rem;
 }
 
 /* All sections  */
@@ -229,6 +229,10 @@ main .weather-section .weather-card .details {
   height: 100%;
   cursor: pointer;
   flex: 1;
+  height: auto;
+  max-width: 3.5rem;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .search button img,
@@ -282,13 +286,6 @@ main .weather-section .weather-card .details {
   display: flex;
   width: 55%;
   margin-bottom: 1rem;
-}
-
-.bg-search #bg-search-btn {
-  height: auto;
-  max-width: 3.5rem;
-  border-radius: 50%;
-  padding: 5px;
 }
 
 #bg-btn {
