@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
 // Dialog functionality
 // Get the dialog
 const dialog = document.querySelector('dialog');
@@ -14,6 +15,7 @@ const linksContainer = document.getElementById('links-container');
 // Open dialog when add link button is clicked
 addLinkBtn.addEventListener('click', () => {
   dialog.showModal();
+  console.log('show')
 });
 
 // Close dialog when close button is clicked
@@ -122,3 +124,6 @@ function removeLinkLocal(url, name) {
 
 enableAddBtn();
 getStoredLinks();
+
+})
+

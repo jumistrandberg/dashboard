@@ -153,9 +153,9 @@ dialog {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-}
+} */
 
-dialog input[type="text"] {
+/* dialog input[type="text"] {
 
     width: calc(100% - 10%);
     padding: 0.8rem;
