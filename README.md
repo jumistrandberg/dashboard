@@ -58,7 +58,7 @@ Overall this has been a messy project. But I hope that the struggle will turn to
 - I was not paying much attention to the HTML, and created elements after what I needed for the scripts. In hindsight it felt like a roundabout way of working. Passes W3 validator, so it will have to be acceptable.
 
 ### CSS:
-- Last priority. Could use refactoring and custom properties.
+- Last priority. Could use refactoring and custom properties. A bit on the longer side. Could have split up in separate documents by widget.
 
 ### Clock, Name and Notes 
 Grouping evaluation of the simpler scripts together as all points can be applied to all of these 
@@ -95,5 +95,6 @@ Made in stressful state after I realised I could not do what I wanted with the c
 ### Learnings: 
 I did not want to work on this project, as I felt very uninspired with programming. I did however find myself pouring a lot of heart and soul into getting it to work, perhaps more out of frustration than anything. I hope that I can come to enjoy programming soon. I think that I am fairly decent at seeing the flaws in my code, but I don't feel capable of correcting them. I enjoy writing out code, but as soon as something does not work I am lost and I struggle to backtrack. I think I should slow down, plan, comment and structure as I go, but I feel I lose my little logic train of thought if I do. I suppose it is a choice, to change my ways, because slow and steady wins the race, or learn how to deal with my own chaos. I do not think it is a defining choice for my future, but something I will have to decide on as I go. Priority should be to create programs that are nice to the user and code that is nice to my fellow programmers. I need to perhaps also remember that I am a beginner. 
 
+As I went back to work after hand-in, I feel a lot better and I do not struggle anymore. I think not giving myself breaks made it worse.
 
 
