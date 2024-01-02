@@ -200,6 +200,7 @@ main .weather-section .weather-card .details {
 }
 
 .search {
+  border: 1px solid green;
   width: 110%;
   display: flex;
   justify-content: space-between; 
@@ -222,7 +223,6 @@ main .weather-section .weather-card .details {
   outline: 0;
   background: rgba(240, 240, 240, 0.9);
   border-radius: 50%;
-  : 2rem;
   height: 100%;
   cursor: pointer;
   flex: 1;
@@ -234,10 +234,6 @@ main .weather-section .weather-card .details {
 }
 
 /* Pokemon Catcher  */
-.poke-section {
-  background-color: blueviolet;
-}
-
-#poke-card {
-  background-color: brown;
+.poke-card {
+  background-color: aqua;
 }
