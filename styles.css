@@ -10,7 +10,6 @@ body {
   overflow-x: hidden;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgba(240, 240, 240, 1);
-
 }
 
 main {
@@ -108,11 +107,10 @@ main .name-section > * {
 }
 
 #links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
-
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
 }
 
 main .links-section .link-element {
@@ -120,43 +118,51 @@ main .links-section .link-element {
   padding: 1rem;
   text-decoration: none;
   color: gray;
-  letter-spacing: 0.2rem;  
+  letter-spacing: 0.2rem;
 }
 
 .remove-icon {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .remove-icon:hover {
-    color: red;
+  color: red;
 }
 
-#add-link-btn {
-    cursor: pointer;
-    padding: 1rem;
-    border-radius: 1rem;
-    border: none;
-    background-color: rgb(26, 26, 26);
-    color: rgba(240, 240, 240, 0.9);
-    letter-spacing: 0.1rem;  
-    text-transform: uppercase;
+#add-link-btn,
+dialog button {
+  cursor: pointer;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
+  border: none;
+  background-color: rgb(26, 26, 26);
+  color: rgba(240, 240, 240, 0.9);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+#add-link-btn:hover,
+dialog button:hover {
+  background-color: transparent;
+  border: 1px solid rgb(26, 26, 26);
+  color:  rgb(26, 26, 26);
 }
 
 dialog {
-  margin: 30vh auto;  
+  border: none;
+  margin: 30vh auto;
   height: 20vh;
   max-width: 800px;
   background-color: rgba(240, 240, 240, 0.9);
   border-radius: 2rem;
   padding: 1rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
+  overflow: hidden;
 }
 
 dialog input[type="text"] {
-
-    width: calc(100% - 10%);
-    padding: 0.8rem;
-    border-radius: 1rem;
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.2rem auto;
+  border-radius: 1rem;
 }
