@@ -13,7 +13,6 @@ body {
 }
 
 main {
-  border: 1px solid blue;
   width: 100%;
   height: 100%;
   display: flex;
@@ -28,7 +27,6 @@ h2 {
 
 /* Part with the widgets  */
 main .row-part {
-  border: 1px solid greenyellow;
   width: 100%;
   height: auto;
   display: flex;
@@ -38,7 +36,6 @@ main .row-part {
 }
 
 main .row-part section {
-  border: 1px solid salmon;
   width: 300px;
   background-color: rgba(128, 128, 128, 0.9);
   min-height: 30rem;
@@ -46,7 +43,6 @@ main .row-part section {
 
 /* All sections  */
 section {
-  border: 1px solid pink;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -80,6 +76,7 @@ main .name-section {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  margin: 0;
 }
 
 main .name-section > * {
@@ -97,7 +94,6 @@ main .name-section > * {
 
 /* Links  */
 .link-container {
-  border: 1px solid green;
   width: 100%;
   max-width: 200px;
   display: flex;
@@ -129,7 +125,7 @@ main .links-section .link-element {
 }
 
 .remove-icon:hover {
-  color: red;
+  color: maroon;
 }
 
 #add-link-btn,
@@ -202,7 +198,6 @@ main .weather-section .weather-card .details {
 }
 
 .search {
-  border: 1px solid green;
   width: 110%;
   display: flex;
   justify-content: space-between;
@@ -281,7 +276,6 @@ main .weather-section .weather-card .details {
 
 .bg-search {
   display: flex;
-  border: 1px solid red;
   width: 55%;
   margin-bottom: 1rem;
 }
