@@ -60,7 +60,7 @@ section {
 /* Clock  */
 main .clock-section {
   background-color: rgba(128, 128, 128, 0.9);
-  padding: 1rem;
+  padding: 0 1rem;
   text-align: center;
 }
 
@@ -208,7 +208,8 @@ main .weather-section .weather-card .details {
   justify-content: space-between;
 }
 
-.search input {
+.search input,
+#bg-search-input {
   max-width: 80%;
   border: 0;
   outline: 0;
@@ -279,12 +280,32 @@ main .weather-section .weather-card .details {
 }
 
 .bg-search {
-
+  display: flex;
+  border: 1px solid red;
+  width: 55%;
+  margin-bottom: 1rem;
 }
 
-.background-section #bg-search-btn {
-  max-width: fit-content;
+.bg-search #bg-search-btn {
   height: auto;
+  max-width: 3.5rem;
   border-radius: 50%;
   padding: 5px;
+}
+
+#bg-btn {
+  cursor: pointer;
+  padding: .5rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: rgb(26, 26, 26);
+  color: rgba(240, 240, 240, 0.9);
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+
+#bg-btn:hover {
+  background-color: rgba(240, 240, 240, 1);
+  color: rgb(26, 26, 26);
+  border: 1px solid rgb(26, 26, 26);
 }
