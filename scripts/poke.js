@@ -1,3 +1,4 @@
+document.addEventListener('DOMContentLoaded', () => {
 // Get the elements
 const pokeCard = document.getElementById('poke-card');
 const pokeBox = document.getElementById('poke-box');
@@ -130,3 +131,5 @@ function displayCaughtPoke() {
   // }
 
 randomPokeGenerator();
+
+})

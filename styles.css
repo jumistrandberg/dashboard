@@ -39,7 +39,7 @@ main .row-part {
 
 main .row-part section {
   border: 1px solid salmon;
-  width: 20rem;
+  width: 300px;
   background-color: rgba(128, 128, 128, 0.9);
   min-height: 30rem;
 }
@@ -99,6 +99,7 @@ main .name-section > * {
 .link-container {
   border: 1px solid green;
   width: 100%;
+  max-width: 200px;
   display: flex;
   align-content: space-between;
   align-items: center;
@@ -199,22 +200,21 @@ main .weather-section .weather-card .details {
 }
 
 .search {
-  width: 100%;
+  width: 110%;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; 
 }
 
 .search input {
+  max-width: 80%;
   border: 0;
   outline: 0;
   background:rgba(240, 240, 240, 0.9);
-  padding: 10px 25px;
-  height: 60px;
-  border-radius: 30px;
+  padding: 1rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  margin-right: 1rem;
   flex: 1;
-  margin-right: 16px;
-  font-size: 18px;
 }
 
 .search button {
@@ -222,13 +222,18 @@ main .weather-section .weather-card .details {
   outline: 0;
   background: rgba(240, 240, 240, 0.9);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  : 2rem;
+  height: 100%;
   cursor: pointer;
+  flex: 1;
+
 }
 
 .search button img {
-  width: 16px;
+  width: 1rem;
 }
 
 /* Pokemon Catcher  */
+#poke-card {
+  background-color: brown;
+}
