@@ -27,7 +27,7 @@ function currentTime() {
     }
 
     // Put the time and date in container
-    clockContainer.innerHTML = `<div>${timeString}</div><div>${dateString}</div>`;
+    clockContainer.innerHTML = `<div class="time">${timeString}</div><div class="date">${dateString}</div>`;
 }
 
 // Call every second
