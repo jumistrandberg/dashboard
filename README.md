@@ -78,6 +78,7 @@ Used code from previous weather app project
 ### Links 
 - Also lacks sufficient error handling, e.g. if local storage should not work
 - Refactoring how the eventListeners are called could improve readability. Now it looks messy. 
+- Should 
 
 ### Pokemon Catcher 
 Made in stressful state after I realised I could not do what I wanted with the currency API, but quickly found myself enjoying coding a little while working on something more fun. As I was running out of time I opted to abandon my original idea and go for something simpler to be able to move on in the project. 

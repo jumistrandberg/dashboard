@@ -84,8 +84,10 @@ saveLinkBtn.addEventListener('click', () => {
     // Empty input fields
     linkUrlInput.value = '';
     linkName.value = '';
-  } else {
+
+    dialog.close();
   }
+
 });
 
 // Function to save to local storage
