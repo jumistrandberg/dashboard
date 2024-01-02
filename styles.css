@@ -33,14 +33,13 @@ main .row-part {
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
+  justify-content: space-around;
   gap: 1rem;
 }
 
 main .row-part section {
   border: 1px solid salmon;
-  width: 25rem;
+  width: 22rem;
   background-color: rgba(128, 128, 128, 0.9);
   min-height: 30rem;
 }
