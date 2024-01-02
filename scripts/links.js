@@ -18,7 +18,6 @@ addLinkBtn.addEventListener('click', () => {
 
 // Close dialog when close button is clicked
 dialogCloseBtn.addEventListener('click', () => {
-    console.log('close')
   dialog.close();
 });
 
