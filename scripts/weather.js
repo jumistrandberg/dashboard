@@ -62,7 +62,13 @@ getApiKey();
 
 // Function to get users location to display local weather 
 async function userLocation() {
-
+    // Get the position with the HTML geolocation API
+    try {
+        const position = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject)
+        });
+        
+    }
 }
 
 userLocation();
