@@ -60,33 +60,10 @@ getApiKey();
 
 })
 
-// // Function to get users location to display local weather 
-// function userLocation() {
-//     navigator.geolocation.getCurrentPosition(
-//         async function(position) {
-//             const long = position.coords.longitude; 
-//             const lat = position.coords.latitude;
+// Function to get users location to display local weather 
+async function userLocation() {
 
-//             // Get the city based on coords 
-//             const apiKey = getApiKey(); 
-//             const reverseGeoUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${apiKey}`;
-            
-//             try {
-//                 const response = await fetch(reverseGeoUrl);
-//                 if(response.ok) {
-//                     const data = await response.json; 
-//                     const city = data[0].name; 
+}
 
-//                     checkWeather(city); 
-//                 } else {
-//                     console.log(`Error: ${response.status}`);
-//                 }
-//             } catch {
-//                 console.log(`Error ${response.status}`)
-//             }
-//         }
-//     )
-// }
-
-// userLocation();
+userLocation();
 
