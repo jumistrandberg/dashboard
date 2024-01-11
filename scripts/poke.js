@@ -25,22 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
     caughtPoke.forEach((poke) => {
 
       // Create div for each party poke and add the name
-      const pokeDiv = document.createElement("div");
-      pokeDiv.textContent = poke.name;
+      const partyDiv = document.createElement("div");
+      partyDiv.classList.add('party-div');
+      partyDiv.textContent = poke.name;
 
       // Create img element for each poke in party
       const partyImg = document.createElement('img'); 
-      partyImg.classList.add('poke-img'); 
+      partyImg.classList.add('party-img'); 
       partyImg.src = poke.img;
 
-      pokeDiv.appendChild(partyImg);
+      partyDiv.appendChild(partyImg);
 
       const removeIcon = document.createElement("i");
       removeIcon.classList.add("fas", "fa-times", "remove-icon");
       removeIcon.setAttribute("title", "Remove Pokemon");
-      pokeDiv.appendChild(removeIcon);
+      partyDiv.appendChild(removeIcon);
 
-      pokeBox.appendChild(pokeDiv);
+      pokeBox.appendChild(partyDiv);
 
       // Listen for clicks on remove icon and remove the Pokemon
       removeIcon.addEventListener("click", () => {
@@ -175,8 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // function displayCaughtPoke() {
   //   pokeBox.innerHTML = "";
   //   caughtPoke.forEach((poke) => {
-  //     const pokeDiv = document.createElement("div");
-  //     pokeDiv.textContent = poke;
+  //     const partyDiv = document.createElement("div");
+  //     partyDiv.textContent = poke;
   //     const partyImg = document.createElement('img'); 
   //     partyImg.classList.add('poke-img'); 
   //     partyImg.src = thisPoke.img;
@@ -185,9 +186,9 @@ document.addEventListener("DOMContentLoaded", () => {
   //     removeIcon = document.createElement("i");
   //     removeIcon.classList.add("fas", "fa-times", "remove-icon");
   //     removeIcon.setAttribute("title", "Remove Pokemon");
-  //     pokeDiv.appendChild(removeIcon);
+  //     partyDiv.appendChild(removeIcon);
 
-  //     pokeBox.appendChild(pokeDiv);
+  //     pokeBox.appendChild(partyDiv);
 
   //     // Listen for clicks on remove icon and remove the Pokemon
   //     removeIcon.addEventListener("click", () => {
@@ -271,15 +272,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // function displayCaughtPoke() {
 //     pokeBox.innerHTML = '';
 //     caughtPoke.forEach((poke) => {
-//       const pokeDiv = document.createElement('div');
-//       pokeDiv.textContent = poke;
+//       const partyDiv = document.createElement('div');
+//       partyDiv.textContent = poke;
 
 //       const removeIcon = document.createElement('i');
 //       removeIcon.classList.add('fas', 'fa-times', 'remove-icon');
 //       removeIcon.setAttribute('title', 'Remove Pokemon');
-//       pokeDiv.appendChild(removeIcon);
+//       partyDiv.appendChild(removeIcon);
 
-//       pokeBox.appendChild(pokeDiv);
+//       pokeBox.appendChild(partyDiv);
 
 //       // Listen for clicks on remove icon and remove the Pokemon
 //       removeIcon.addEventListener('click', () => {
