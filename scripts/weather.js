@@ -133,6 +133,7 @@ async function checkWeatherUserLocation(lat, long) {
         const data = await response.json(); 
         const city = data.city.name;
 
+        checkWeather(city); 
     } else {
         console.log(`Error: ${response.status}`); 
     }
