@@ -2,11 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 body {
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -34,16 +34,16 @@ h2 {
 
 /* Part with the widgets  */
 main .row-part {
-  width: 100%;
+  width: 90%;
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
   gap: 1rem;
+  padding: rem;
 }
 
 main .row-part section {
-  width: 300px;
+  flex: 1;
   background-color: rgba(128, 128, 128, 0.9);
   min-height: 10rem;
 }
@@ -53,11 +53,11 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   flex: 0 0 1;
   border-radius: 2rem;
   margin: 1rem 0;
   padding: 1rem;
+  text-align: center;
 }
 
 /* Clock  */
@@ -100,26 +100,23 @@ main .name-section > * {
 }
 
 /* Links  */
+.links-section {
+  width: 100%;
+  justify-content: start;
+}
+
 .link-container {
   width: 100%;
-  max-width: 200px;
   display: flex;
   align-content: space-between;
   align-items: center;
   background-color: rgba(240, 240, 240, 0.9);
   color: gray;
   border-radius: 1rem;
-  padding: 0 0.7rem;
+  margin-top: 1rem;
 }
 
-#links-container {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: flex-start;
-}
-
-main .links-section .link-element {
+.links-section .link-element {
   width: 100%;
   padding: 1rem;
   text-decoration: none;
@@ -177,11 +174,12 @@ dialog input[type="text"] {
 }
 
 /* Weather  */
-main .weather-section .weather-card {
+.weather-section {
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
+  justify-content: start;
 }
 
 main .weather-section .weather-card .weather {
@@ -244,7 +242,6 @@ main .weather-section .weather-card .details {
   width: 1rem;
 }
 
-
 .weather-icon {
   width: 6rem;
 }
@@ -281,7 +278,7 @@ main .weather-section .weather-card .details {
 }
 
 .poke-img {
-  width: 100%;
+  width: 80%;
 }
 
 .party-div {
@@ -310,6 +307,7 @@ main .weather-section .weather-card .details {
 .background-section {
   width: 100%;
   padding-bottom: 20%;
+  align-items: center;
 }
 
 .bg-search {
@@ -320,7 +318,7 @@ main .weather-section .weather-card .details {
 
 #bg-btn {
   cursor: pointer;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 1rem;
   border: none;
   background-color: rgb(26, 26, 26);
@@ -328,4 +326,3 @@ main .weather-section .weather-card .details {
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
-
