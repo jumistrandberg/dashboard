@@ -137,12 +137,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
       catchBtn.remove();
       console.log("success");
+      pokeImg.style.width = '0px'
+
+       // Show no pokemon now
+       setTimeout(() => {
+        pokeStatusText.innerText = "No Pokémon here for now..."
+      }, 1500);
+      
     } else {
       // Trigger catch fail
       console.log("fail");
       pokeImg.style.width = '0px'
       catchBtn.remove();
-      pokeStatusText.innerText = thisPoke.name + ' got away!'
+      pokeStatusText.innerText = thisPoke.name + ' got away!';
+
+      // Show no pokemon now
+      setTimeout(() => {
+        pokeStatusText.innerText = "No Pokemon here..."
+      }, 1500);
     }
   }
 
@@ -182,6 +194,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // Function to 
 
   displayPokeData();
 });
