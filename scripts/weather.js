@@ -16,6 +16,9 @@ let response;
 let keyArray; 
 let weatherApiKey; 
 
+// Store the JSON response 
+let data;
+
 // Function to get the API key 
 async function getApiKey() {
      response = await fetch('./apiKeys.json')
@@ -31,9 +34,9 @@ async function getApiKey() {
 // Function to get the weather and display it on dashboard 
 async function checkWeather(city) {
     //Get the key and URL 
-    const apiKey = await getApiKey();     
-    const response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);    
-    const data = await response.json();
+     apiKey = await getApiKey();     
+     response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);    
+     data = await response.json();
 
     // Change the HTML elements based on the data from the weather API 
     document.querySelector('.city').innerHTML = data.name;
