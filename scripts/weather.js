@@ -82,9 +82,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   getApiKey();
-});
 
-// Function to get users location to display local weather
+
+
+  // Function to get users location to display local weather
 async function userLocation() {  
     let lat;  
     let long;
@@ -119,19 +120,24 @@ async function userLocation() {
 //   }
 
 
+userLocation();
 async function checkWeatherUserLocation(lat, long) {
 
-      // Get api key
-      apiKey = await getApiKey();
+    // Get api key
+    apiKey = await getApiKey();
 
-      // The url
-      const reverseGeoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${apiKey}`
-      const response = await fetch(reverseGeoUrl); 
-      if(response.ok) {
-          const data = await response.json(); 
-      } else {
-          console.log(`Error: ${response.status}`); 
-      }
+    // The url
+    const geoUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`
+    const response = await fetch(geoUrl); 
+    if(response.ok) {
+        const data = await response.json(); 
+        const city = data.city.name;
+
+    } else {
+        console.log(`Error: ${response.status}`); 
+    }
 
 }
-userLocation();
+
+});
+
