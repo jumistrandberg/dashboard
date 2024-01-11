@@ -17,42 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Show the party
   displayCaughtPoke();
 
-  // Function to display the party and add remove icon
-  function displayCaughtPoke() {
-    pokeBox.innerHTML = "";
-    caughtPoke.forEach((poke) => {
-
-      // Create div for each party poke and add the name
-      const partyDiv = document.createElement("div");
-      partyDiv.classList.add('party-div');
-      partyDiv.textContent = poke.name;
-
-      // Create img element for each poke in party
-      const partyImg = document.createElement('img'); 
-      partyImg.classList.add('party-img'); 
-      partyImg.src = poke.img;
-
-      partyDiv.appendChild(partyImg);
-
-      const removeIcon = document.createElement("i");
-      removeIcon.classList.add("fas", "fa-times", "remove-icon");
-      removeIcon.setAttribute("title", "Remove Pokemon");
-      partyDiv.appendChild(removeIcon);
-
-      pokeBox.appendChild(partyDiv);
-
-      // Listen for clicks on remove icon and remove the Pokemon
-      removeIcon.addEventListener("click", () => {
-        const index = caughtPoke.indexOf(poke);
-        if (index !== -1) {
-          caughtPoke.splice(index, 1);
-          displayCaughtPoke();
-          localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
-        }
-      });
-    });
-  }
-
   // Class for pokemon
   class Pokemon {
     constructor(name, type, catchRate, img) {
@@ -96,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(url + randomPokeNum);
       this.poke = await response.json();
     }
-
   }
 
   // New Pokemon instance
@@ -148,12 +111,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (thisPoke.catchRate <= randomBallNum) {
       // Trigger catch success
       // Store caught pokemon as an object and push to array
-      caughtPoke.push(
-        {
-          name: thisPoke.name,
-          img: thisPoke.img
-        }
-      );
+      caughtPoke.push({
+        name: thisPoke.name,
+        img: thisPoke.img,
+      });
 
       // Call the display party function to update the array
       displayCaughtPoke();
@@ -171,34 +132,47 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Function to display the party and add remove icon
-  // function displayCaughtPoke() {
-  //   pokeBox.innerHTML = "";
-  //   caughtPoke.forEach((poke) => {
-  //     const partyDiv = document.createElement("div");
-  //     partyDiv.textContent = poke;
-  //     const partyImg = document.createElement('img'); 
-  //     partyImg.classList.add('poke-img'); 
-  //     partyImg.src = thisPoke.img;
+  function displayCaughtPoke() {
+    pokeBox.innerHTML = "";
+    limitParty();
+    caughtPoke.forEach((poke) => {
+      // Create div for each party poke and add the name
+      const partyDiv = document.createElement("div");
+      partyDiv.classList.add("party-div");
+      partyDiv.textContent = poke.name;
 
+      // Create img element for each poke in party
+      const partyImg = document.createElement("img");
+      partyImg.classList.add("party-img");
+      partyImg.src = poke.img;
 
-  //     removeIcon = document.createElement("i");
-  //     removeIcon.classList.add("fas", "fa-times", "remove-icon");
-  //     removeIcon.setAttribute("title", "Remove Pokemon");
-  //     partyDiv.appendChild(removeIcon);
+      partyDiv.appendChild(partyImg);
 
-  //     pokeBox.appendChild(partyDiv);
+      const removeIcon = document.createElement("i");
+      removeIcon.classList.add("fas", "fa-times", "remove-icon");
+      removeIcon.setAttribute("title", "Remove Pokemon");
+      partyDiv.appendChild(removeIcon);
 
-  //     // Listen for clicks on remove icon and remove the Pokemon
-  //     removeIcon.addEventListener("click", () => {
-  //       const index = caughtPoke.indexOf(poke);
-  //       if (index !== -1) {
-  //         caughtPoke.splice(index, 1);
-  //         displayCaughtPoke();
-  //         localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
-  //       }
-  //     });
-  //   });
-  // }
+      pokeBox.appendChild(partyDiv);
+
+      // Listen for clicks on remove icon and remove the Pokemon
+      removeIcon.addEventListener("click", () => {
+        const index = caughtPoke.indexOf(poke);
+        if (index !== -1) {
+          caughtPoke.splice(index, 1);
+          displayCaughtPoke();
+          localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
+        }
+      });
+    });
+  }
+
+  // Limit party to 6 pokemon
+  function limitParty() {
+    // Check how many party members 
+    const partyPokeNum = caughtPoke.length; 
+    console.log(partyPokeNum)
+  }
 
   displayPokeData();
 });
