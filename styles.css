@@ -151,9 +151,9 @@ dialog button,
 
 #add-link-btn:hover,
 dialog button:hover,
-.poke-card button:hover {
-  background-color: transparent;
-  border: 1px solid rgb(26, 26, 26);
+.poke-card button:hover,
+#bg-btn:hover {
+  background-color: rgba(240, 240, 240, 0.7);
   color: rgb(26, 26, 26);
 }
 
@@ -315,8 +315,3 @@ main .weather-section .weather-card .details {
   text-transform: uppercase;
 }
 
-#bg-btn:hover {
-  background-color: rgba(240, 240, 240, 1);
-  color: rgb(26, 26, 26);
-  border: 1px solid rgb(26, 26, 26);
-}
