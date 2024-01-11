@@ -38,12 +38,7 @@ async function checkWeather(city) {
      response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);    
      data = await response.json();
 
-    // Change the HTML elements based on the data from the weather API 
-    document.querySelector('.city').innerHTML = data.name;
-    document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + '°C';
-    document.querySelector('.humidity').innerHTML = data.main.humidity + '%';
-    document.querySelector('.wind').innerHTML = data.wind.speed + 'km/h';
-
+    displayData();
     // Check which weather and pick right img to show 
     if(data.weather[0].main == 'Clouds'){
         weatherIcon.src = 'imgs/clouds.png'
@@ -57,6 +52,15 @@ async function checkWeather(city) {
         weatherIcon.src = 'imgs/snow.png'
     }
     
+}; 
+
+// Function to set the data on UI 
+function displayData() {
+   // Change the HTML elements based on the data from the weather API 
+   document.querySelector('.city').innerHTML = data.name;
+   document.querySelector('.temp').innerHTML = Math.round(data.main.temp) + '°C';
+   document.querySelector('.humidity').innerHTML = data.main.humidity + '%';
+   document.querySelector('.wind').innerHTML = data.wind.speed + 'km/h';
 }
 
 
