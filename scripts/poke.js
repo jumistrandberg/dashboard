@@ -3,13 +3,20 @@ document.addEventListener('DOMContentLoaded', () => {
 const pokeCard = document.getElementById('poke-card');
 const pokeBox = document.getElementById('poke-box');
 let pokeStatusText = document.getElementById('poke-status-text');
-// let catchBtn;
-let poke;
 
-// Get the caught poke from local storage 
-let caughtPoke = JSON.parse(localStorage.getItem('caughtPoke')) || [];
-// Show the party 
-displayCaughtPoke();
+// Data Variables 
+let poke;
+// Store name of pokemon
+let pokeName;
+// Store type of pokemon
+let pokeType;
+// Get species data needed for catch rate
+let species;
+// Store catch rate of pokemon
+let pokeCatchRate; 
+// Store the sprite img 
+let pokeImg; 
+
 
 // Url to the national dex
 const url = 'https://pokeapi.co/api/v2/pokemon/';
@@ -18,62 +25,72 @@ let randomPokeNum = Math.floor(Math.random() * 1025 + 1);
 // Class for pokemon
 class Pokemon {
   constructor(name, type, catchRate, img) {
-    this.name = name;
-    this.type = type;
-    this.catchRate = catchRate;
-    this.img = img;
+    this.name = '';
+    this.type = '';
+    this.catchRate = '';
+    this.img = '';
+    this.species = ''
+  };
+
+  // Method to get the values 
+  async getPokeValues() {
+    this.name = this.poke.species.name;
+    this.type = this.poke.types[0].type.name;
+    this.img = this.poke.sprites.dream_world.front_default;
+    this.catchRate = this.species.capture_rate;
+  };
+
+  // Method to get the capture rate from species 
+  async getCatchRate() {
+    const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${randomPokeNum}/`;
+    const response = fetch(speciesUrl + randomPokeNum); 
+    this.species = (await response).json();
+
+    return this.species;
+  };
+
+  // Method to fetch the main data 
+  async fetchPokemonData() {
+    const response = await fetch(url + randomPokeNum); 
+    this.poke = await response.json();
   }
+
 }; 
 
-// Store name of pokemon
-let pokeName;
-// Store type of pokemon
-let pokeType;
-
-// Get species data needed for catch rate
-let species;
-
-// Store catch rate of pokemon
-let pokeCatchRate; 
-// Store the sprite img 
-let pokeImg; 
-
-// Generate a random Pokemon
-async function randomPokeGenerator() {
-  // Fetch a random no. Pokemon from the API
-  const response = await fetch(url + randomPokeNum); 
-  poke = await response.json(); 
-
-  return poke;
-}
 
 
-// Get the pokemon values
-async function getPokeValues() {
-  pokeName = poke.species.name;
-  console.log(pokeName); 
 
-  pokeType = poke.types[0].type.name; 
-  console.log(pokeType);
+// // Get the pokemon values
+// async function getPokeValues() {
+//   pokeName = poke.species.name;
+//   console.log(pokeName); 
 
-  pokeImg = poke.sprites.dream_world.front_default;
-  console.log(pokeImg);
+//   pokeType = poke.types[0].type.name; 
+//   console.log(pokeType);
 
-  pokeCatchRate = species.capture_rate;
-  console.log(pokeCatchRate); 
-}
+//   pokeImg = poke.sprites.dream_world.front_default;
+//   console.log(pokeImg);
 
-// Get the capture rate from species 
-async function getCatchRate() {
-  const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${randomPokeNum}/`;
-   const response = await fetch(url + randomPokeNum); 
-   species = await response.json(); 
+//   pokeCatchRate = species.capture_rate;
+//   console.log(pokeCatchRate); 
+// }
+
+// // Get the capture rate from species 
+// async function getCatchRate() {
+//   const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${randomPokeNum}/`;
+//    const response = await fetch(url + randomPokeNum); 
+//    species = await response.json(); 
  
-   return species;
-}
+//    return species;
+// }
 
 
 
+
+// Get the caught poke from local storage 
+// let caughtPoke = JSON.parse(localStorage.getItem('caughtPoke')) || [];
+// // Show the party 
+// displayCaughtPoke();
 
 // // The name of the random pokemon
 // let pokeName;
