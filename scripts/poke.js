@@ -5,18 +5,20 @@ const pokeBox = document.getElementById('poke-box');
 let pokeStatusText = document.getElementById('poke-status-text');
 let catchBtn;
 
-// Data Variables 
-let poke;
-// Store name of pokemon
-let pokeName;
-// Store type of pokemon
-let pokeType;
-// Get species data needed for catch rate
+// // Data Variables 
+// let poke;
+// // Store name of pokemon
+// let pokeName;
+// // Store type of pokemon
+// let pokeType;
+// // Get species data needed for catch rate
+// let species;
+// // Store catch rate of pokemon
+// let pokeCatchRate; 
+// // Store the sprite img 
+// let pokeImg; 
 let species;
-// Store catch rate of pokemon
-let pokeCatchRate; 
-// Store the sprite img 
-let pokeImg; 
+const speciesUrl = 'https://pokeapi.co/api/v2/pokemon-species/'
 
 
 // Url to the national dex
@@ -30,24 +32,35 @@ class Pokemon {
     this.type = '';
     this.catchRate = '';
     this.img = '';
+    this.speciesUrl = '';
     this.species = ''
   };
 
+  // Method to get the species URL
+  getSpeciesUrl(url) {
+    this.speciesUrl = url;
+  }
+
   // Method to get the values 
   async getPokeValues() {
+    // Fetch data from species URL
+    const response = await fetch(this.speciesUrl); 
+    const speciesData = await response.json(); 
+
+    // Set the values 
     this.name = this.poke.species.name;
     this.type = this.poke.types[0].type.name;
     this.img = this.poke.sprites.other['official-artwork'].front_default;
-    this.catchRate = this.species.capture_rate;
+    this.catchRate = speciesData.capture_rate;
   };
 
   // Method to get the capture rate from species 
   async getCatchRate() {
-    const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/`;
     const response = fetch(speciesUrl + randomPokeNum); 
     this.species = (await response).json();
+    species = this.species;
 
-    return this.species;
+    return species;
   };
 
   // Method to fetch the main data 
@@ -63,8 +76,13 @@ const thisPoke = new Pokemon();
 
 // Display Pokemon on UI function
 async function displayPokeData() {
+  // Set the species URL of this pokemon 
+thisPoke.getSpeciesUrl(speciesUrl + randomPokeNum)
+
   await thisPoke.fetchPokemonData();
+  await thisPoke.getCatchRate();
   await thisPoke.getPokeValues();
+  console.log(thisPoke.catchRate);
 
   // Create img 
   const pokeImg = document.createElement('img'); 
@@ -88,11 +106,13 @@ function createCatchBtn() {
 
   pokeCard.appendChild(catchBtn);
 
-  // Trigger catch if button is
-  catchBtn.addEventListener('click', () => {
-    catchCondition();
-  });
-}
+  // // Trigger catch if button is
+  // catchBtn.addEventListener('click', () => {
+  //   catchCondition();
+  // });
+}; 
+
+
   displayPokeData();
 
 // // Get the pokemon values
