@@ -91,15 +91,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Create the catch button
   function createCatchBtn() {
+    // Check how many party members
+    const partyPokeNum = caughtPoke.length;
+    console.log(partyPokeNum);
+
     catchBtn = document.createElement("button");
-    catchBtn.textContent = "Catch " + thisPoke.name;
+
+    if (partyPokeNum >= 6) {
+      catchBtn.textContent = "Your party is full!";
+    } else {
+      catchBtn.textContent = "Catch " + thisPoke.name;
+
+      // Trigger catch if button is clicked
+      catchBtn.addEventListener("click", () => {
+        catchCondition();
+      });
+    }
 
     pokeCard.appendChild(catchBtn);
-
-    // Trigger catch if button is clicked
-    catchBtn.addEventListener("click", () => {
-      catchCondition();
-    });
   }
 
   // Check if catch is successful
@@ -134,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Function to display the party and add remove icon
   function displayCaughtPoke() {
     pokeBox.innerHTML = "";
-    limitParty();
     caughtPoke.forEach((poke) => {
       // Create div for each party poke and add the name
       const partyDiv = document.createElement("div");
@@ -165,13 +173,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
     });
-  }
-
-  // Limit party to 6 pokemon
-  function limitParty() {
-    // Check how many party members 
-    const partyPokeNum = caughtPoke.length; 
-    console.log(partyPokeNum)
   }
 
   displayPokeData();
