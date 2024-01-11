@@ -36,13 +36,13 @@ class Pokemon {
   async getPokeValues() {
     this.name = this.poke.species.name;
     this.type = this.poke.types[0].type.name;
-    this.img = this.poke.sprites.dream_world.front_default;
+    this.img = this.poke.sprites.other['official-artwork'].front_default;
     this.catchRate = this.species.capture_rate;
   };
 
   // Method to get the capture rate from species 
   async getCatchRate() {
-    const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${randomPokeNum}/`;
+    const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/`;
     const response = fetch(speciesUrl + randomPokeNum); 
     this.species = (await response).json();
 
@@ -57,8 +57,22 @@ class Pokemon {
 
 }; 
 
+// New Pokemon instance 
+const myPokemon = new Pokemon(); 
 
+async function main() {
+  await myPokemon.fetchPokemonData();
+  await myPokemon.getCatchRate();
+  await myPokemon.getPokeValues();
 
+  // Access the data from the class instance
+  console.log(myPokemon.name);
+  console.log(myPokemon.type);
+  console.log(myPokemon.img);
+  console.log(myPokemon.catchRate);
+}
+
+main();
 
 // // Get the pokemon values
 // async function getPokeValues() {
