@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const pokeCard = document.getElementById('poke-card');
 const pokeBox = document.getElementById('poke-box');
 let pokeStatusText = document.getElementById('poke-status-text');
+let catchBtn;
 
 // Data Variables 
 let poke;
@@ -63,7 +64,6 @@ const thisPoke = new Pokemon();
 // Display Pokemon on UI function
 async function displayPokeData() {
   await thisPoke.fetchPokemonData();
-  await thisPoke.getCatchRate();
   await thisPoke.getPokeValues();
 
   // Create img 
@@ -77,8 +77,22 @@ async function displayPokeData() {
 
   pokeCard.appendChild(pokeStatusText);
   pokeCard.appendChild(pokeImg);
-}
 
+  createCatchBtn();
+};
+
+// Create the catch button
+function createCatchBtn() {
+  catchBtn = document.createElement('button');
+  catchBtn.textContent = 'Catch ' + thisPoke.name;
+
+  pokeCard.appendChild(catchBtn);
+
+  // Trigger catch if button is
+  catchBtn.addEventListener('click', () => {
+    catchCondition();
+  });
+}
   displayPokeData();
 
 // // Get the pokemon values
