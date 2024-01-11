@@ -3,17 +3,78 @@ document.addEventListener('DOMContentLoaded', () => {
 const pokeCard = document.getElementById('poke-card');
 const pokeBox = document.getElementById('poke-box');
 let pokeStatusText = document.getElementById('poke-status-text');
-let catchBtn;
+// let catchBtn;
 let poke;
 
-// // Get the caught poke from local storage 
-// let caughtPoke = JSON.parse(localStorage.getItem('caughtPoke')) || [];
-// // Show the party 
-// displayCaughtPoke();
+// Get the caught poke from local storage 
+let caughtPoke = JSON.parse(localStorage.getItem('caughtPoke')) || [];
+// Show the party 
+displayCaughtPoke();
 
-// // Url to the national dex
-// const url = 'https://pokeapi.co/api/v2/pokemon/';
-// let randomPokeNum = Math.floor(Math.random() * 1025 + 1);
+// Url to the national dex
+const url = 'https://pokeapi.co/api/v2/pokemon/';
+let randomPokeNum = Math.floor(Math.random() * 1025 + 1);
+
+// Class for pokemon
+class Pokemon {
+  constructor(name, type, catchRate, img) {
+    this.name = name;
+    this.type = type;
+    this.catchRate = catchRate;
+    this.img = img;
+  }
+}; 
+
+// Store name of pokemon
+let pokeName;
+// Store type of pokemon
+let pokeType;
+
+// Get species data needed for catch rate
+let species;
+
+// Store catch rate of pokemon
+let pokeCatchRate; 
+// Store the sprite img 
+let pokeImg; 
+
+// Generate a random Pokemon
+async function randomPokeGenerator() {
+  // Fetch a random no. Pokemon from the API
+  const response = await fetch(url + randomPokeNum); 
+  poke = await response.json(); 
+
+  return poke;
+}
+
+
+// Get the pokemon values
+async function getPokeValues() {
+  pokeName = poke.species.name;
+  console.log(pokeName); 
+
+  pokeType = poke.types[0].type.name; 
+  console.log(pokeType);
+
+  pokeImg = poke.sprites.dream_world.front_default;
+  console.log(pokeImg);
+
+  pokeCatchRate = species.capture_rate;
+  console.log(pokeCatchRate); 
+}
+
+// Get the capture rate from species 
+async function getCatchRate() {
+  const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${randomPokeNum}/`;
+   const response = await fetch(url + randomPokeNum); 
+   species = await response.json(); 
+ 
+   return species;
+}
+
+
+
+
 // // The name of the random pokemon
 // let pokeName;
 
