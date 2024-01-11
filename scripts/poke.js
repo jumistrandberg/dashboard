@@ -170,6 +170,8 @@ document.addEventListener("DOMContentLoaded", () => {
           caughtPoke.splice(index, 1);
           displayCaughtPoke();
           localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
+          catchBtn.remove();
+          createCatchBtn();
         }
       });
     });
