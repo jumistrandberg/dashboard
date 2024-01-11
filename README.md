@@ -48,11 +48,13 @@ Email: jumi.strandberg@chasacademy.se
 
 ## Evaluation:
 ###  General and Workflow: 
-I did not perform well on this project. My persisting weakness is planning and time management. I am also doing poorly with troubleshooting and I find it difficult to read code. If things do not work on first try for me I become disoriented, hence I should plan better, and comment better.
+~~I did not perform well on this project. My persisting weakness is planning and time management. I am also doing poorly with troubleshooting and I find it difficult to read code. If things do not work on first try for me I become disoriented, hence I should plan better, and comment better.
 
 Comments are subpar. As the deadline was approaching and I found myself stuck I stopped commenting, which might have led to more confusion in the long run. 
 
-Overall this has been a messy project. But I hope that the struggle will turn to skill with time. Really need not only read documentation, but also look at subscription plans when using APIs.
+Overall this has been a messy project. But I hope that the struggle will turn to skill with time. Really need not only read documentation, but also look at subscription plans when using APIs.~~
+
+Coming back to this project, I've had a lot of fun. I don't know what changed expect for my general mood, but after taking a break and dropping the stress of a deadline, I managed to clean up the structure and fix broken functionality.
 
 ### HTML: 
 - I was not paying much attention to the HTML, and created elements after what I needed for the scripts. In hindsight it felt like a roundabout way of working. Passes W3 validator, so it will have to be acceptable.
@@ -84,6 +86,7 @@ Used code from previous weather app project
 Made in stressful state after I realised I could not do what I wanted with the currency API, but quickly found myself enjoying coding a little while working on something more fun. As I was running out of time I opted to abandon my original idea and go for something simpler to be able to move on in the project. 
 - Suffers same lack of error handling as all scripts. 
 - Could have improved maintainability by using object to create a poke object, but as I was not enjoying this project and running out of time, I used what I was more comfortable with.
+- ##### Update: Tried using a class, but don't know if it was any point since there is only 1 instance of Pokemon (for now). Still learned a lot.
 - This much repetition could be avoided with objects.
 - Many async operations, not maintainable, could cause callback chaining. 
 - Code overall is not very readable nor maintainable. 
