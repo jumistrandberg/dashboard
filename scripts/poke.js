@@ -58,21 +58,28 @@ class Pokemon {
 }; 
 
 // New Pokemon instance 
-const myPokemon = new Pokemon(); 
+const thisPoke = new Pokemon(); 
 
-async function main() {
-  await myPokemon.fetchPokemonData();
-  await myPokemon.getCatchRate();
-  await myPokemon.getPokeValues();
+// Display Pokemon on UI function
+async function displayPokeData() {
+  await thisPoke.fetchPokemonData();
+  await thisPoke.getCatchRate();
+  await thisPoke.getPokeValues();
 
-  // Access the data from the class instance
-  console.log(myPokemon.name);
-  console.log(myPokemon.type);
-  console.log(myPokemon.img);
-  console.log(myPokemon.catchRate);
+  // Create img 
+  const pokeImg = document.createElement('img'); 
+  pokeImg.classList.add('poke-img'); 
+  pokeImg.src = thisPoke.img; 
+
+  //  Show which pokemon appeared on the dashboard
+  pokeStatusText.innerText = thisPoke.name + ' appeared!';
+
+
+  pokeCard.appendChild(pokeStatusText);
+  pokeCard.appendChild(pokeImg);
 }
 
-main();
+  displayPokeData();
 
 // // Get the pokemon values
 // async function getPokeValues() {
