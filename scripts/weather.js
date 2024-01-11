@@ -84,32 +84,54 @@ document.addEventListener("DOMContentLoaded", () => {
   getApiKey();
 });
 
-// // Function to get users location to display local weather
-// function userLocation() {
-//     navigator.geolocation.getCurrentPosition(
-//         async function(position) {
-//             const long = position.coords.longitude;
-//             const lat = position.coords.latitude;
+// Function to get users location to display local weather
+async function userLocation() {  
+    let lat;  
+    let long;
+       
+        try {
+            // Try to access the geolocation api
+            const position = await new Promise((resolve, reject) => {
+                navigator.geolocation.getCurrentPosition(resolve, reject); 
+            }); 
+            
+            // Store the long and lat values 
+             lat = position.coords.latitude; 
+             long = position.coords.longitude; 
 
-//             // Get the city based on coords
-//             const apiKey = getApiKey();
-//             const reverseGeoUrl = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${apiKey}`;
+            checkWeatherUserLocation(lat, long);
 
-//             try {
-//                 const response = await fetch(reverseGeoUrl);
-//                 if(response.ok) {
-//                     const data = await response.json;
-//                     const city = data[0].name;
+        } catch (error) {
+            console.log(`Error getting location or weather`, error)
+        }
+        // data = await response.json();
+        // displayData();
+    }
 
-//                     checkWeather(city);
-//                 } else {
-//                     console.log(`Error: ${response.status}`);
-//                 }
-//             } catch {
-//                 console.log(`Error ${response.status}`)
-//             }
-//         }
-//     )
-// }
+//  // Function to get the weather and display it on dashboard
+//  async function checkWeather(city) {
+//     //Get the key and URL
+//     apiKey = await getApiKey();
+//     response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);
+//     data = await response.json();
 
-// userLocation();
+//     displayData();
+//   }
+
+
+async function checkWeatherUserLocation(lat, long) {
+
+      // Get api key
+      apiKey = await getApiKey();
+
+      // The url
+      const reverseGeoUrl = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=1&appid=${apiKey}`
+      const response = await fetch(reverseGeoUrl); 
+      if(response.ok) {
+          const data = await response.json(); 
+      } else {
+          console.log(`Error: ${response.status}`); 
+      }
+
+}
+userLocation();
