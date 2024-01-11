@@ -88,6 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
     pokeCard.appendChild(pokeImg);
 
     createCatchBtn();
+
+    // Set no show timer after displaying
+    noPokeNowTimer();
+
   }
 
   // Create the catch button
@@ -139,10 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("success");
       pokeImg.style.width = '0px'
 
-       // Show no pokemon now
-       setTimeout(() => {
-        pokeStatusText.innerText = "No Pokémon here for now..."
-      }, 1500);
       
     } else {
       // Trigger catch fail
@@ -150,14 +150,20 @@ document.addEventListener("DOMContentLoaded", () => {
       pokeImg.style.width = '0px'
       catchBtn.remove();
       pokeStatusText.innerText = thisPoke.name + ' got away!';
-
-      // Show no pokemon now
-      setTimeout(() => {
-        pokeStatusText.innerText = "No Pokemon here..."
-      }, 1500);
     }
   }
 
+  // function noPokeNowTimer() {
+  //   // Set timeout time based on randomTimer
+  //   setTimeout(() => {
+  //     pokeCard.innerHTML = "";
+  //     displayPokeData()
+  //   }, randomTimer());
+  // }
+
+  // function randomTimer() {
+  //   return Math.floor(Math.random() * (2000 - 7000 + 1) + 7000)
+  // }
   // Function to display the party and add remove icon
   function displayCaughtPoke() {
     pokeBox.innerHTML = "";
@@ -195,7 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Function to 
+  // Set random timer before next pokemon 
+
 
   displayPokeData();
 });
