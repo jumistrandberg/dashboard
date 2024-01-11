@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const pokeBox = document.getElementById("poke-box");
   let pokeStatusText = document.getElementById("poke-status-text");
   let catchBtn;
+  let pokeImg;
 
   let species;
   const speciesUrl = "https://pokeapi.co/api/v2/pokemon-species/";
@@ -76,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(thisPoke.catchRate);
 
     // Create img
-    const pokeImg = document.createElement("img");
+     pokeImg = document.createElement("img");
     pokeImg.classList.add("poke-img");
     pokeImg.src = thisPoke.img;
 
@@ -133,10 +134,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Save updated caughtPoke to localStorage
       localStorage.setItem("caughtPoke", JSON.stringify(caughtPoke));
+
+      catchBtn.remove();
       console.log("success");
     } else {
       // Trigger catch fail
       console.log("fail");
+      pokeImg.style.width = '0px'
+      catchBtn.remove();
+      pokeStatusText.innerText = thisPoke.name + ' got away!'
     }
   }
 
