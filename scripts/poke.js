@@ -106,10 +106,10 @@ function createCatchBtn() {
 
   pokeCard.appendChild(catchBtn);
 
-  // // Trigger catch if button is
-  // catchBtn.addEventListener('click', () => {
-  //   catchCondition();
-  // });
+  // Trigger catch if button is clicked
+  catchBtn.addEventListener('click', () => {
+    catchCondition();
+  });
 }; 
 
 
