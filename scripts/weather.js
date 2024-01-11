@@ -49,19 +49,29 @@ document.addEventListener("DOMContentLoaded", () => {
       Math.round(data.main.temp) + "°C";
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
-    console.log(data.weather)
+    console.log(data.weather);
 
     // Check which weather and pick right img to show
-    if (data.weather[0].main == "Clouds") {
-      weatherIcon.src = "imgs/clouds.png";
-    } else if (data.weather[0].main == "Clear") {
-      weatherIcon.src = "imgs/clear.png";
-    } else if (data.weather[0].main == "Drizzle") {
-      weatherIcon.src = "imgs/drizzle.png";
-    } else if (data.weather[0].main == "Mist") {
-      weatherIcon.src = "imgs/mist.png";
-    } else if (data.weather[0].main == "Snow") {
-      weatherIcon.src = "imgs/snow.png";
+    switch (data.weather[0].main) {
+      case "Clouds":
+        weatherIcon.src = "imgs/clouds.png";
+        break;
+      case "Clear":
+        weatherIcon.src = "imgs/clear.png";
+        break;
+      case "Drizzle":
+        weatherIcon.src = "imgs/drizzle.png";
+        break;
+      case "Mist":
+        weatherIcon.src = "imgs/mist.png";
+        break;
+      case "Snow":
+        weatherIcon.src = "imgs/snow.png";
+        break;
+
+      default:
+        weatherIcon.src = "";
+        break;
     }
   }
 
