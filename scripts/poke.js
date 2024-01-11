@@ -137,6 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // Try randomBallNum against catchRate
     if (thisPoke.catchRate <= randomBallNum) {
       //Trigger catch success
+      caughtPoke.push(thisPoke.name);
+      displayCaughtPoke();
+      pokeStatusText.innerText = thisPoke.name + ' was added to your party!';
+        // Save updated caughtPoke to localStorage
+        localStorage.setItem('caughtPoke', JSON.stringify(caughtPoke));
       console.log('success')
     } else {
       // Trigger catch fail
@@ -145,11 +150,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+   // Function to display the party and add remove icon
+  function displayCaughtPoke() {
+      pokeBox.innerHTML = '';
+      caughtPoke.forEach((poke) => {
+        const pokeDiv = document.createElement('div');
+        pokeDiv.textContent = poke;
+
+        const removeIcon = document.createElement('i');
+        removeIcon.classList.add('fas', 'fa-times', 'remove-icon');
+        removeIcon.setAttribute('title', 'Remove Pokemon');
+        pokeDiv.appendChild(removeIcon);
+
+        pokeBox.appendChild(pokeDiv);
+
+        // Listen for clicks on remove icon and remove the Pokemon
+        removeIcon.addEventListener('click', () => {
+          const index = caughtPoke.indexOf(poke);
+          if (index !== -1) {
+            caughtPoke.splice(index, 1);
+            displayCaughtPoke();
+            localStorage.setItem('caughtPoke', JSON.stringify(caughtPoke));
+          }
+        });
+      });
+  }
+
+
   //
 
   displayPokeData();
 
- 
+})
 
 
   // Get the caught poke from local storage
@@ -273,4 +305,3 @@ document.addEventListener("DOMContentLoaded", () => {
   //   // }
 
   // randomPokeGenerator();
-});
