@@ -39,13 +39,12 @@ main .row-part {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  padding: rem;
 }
 
 main .row-part section {
-  flex: 1;
   background-color: rgba(128, 128, 128, 0.9);
   min-height: 10rem;
+  flex: 1 0 100%;
 }
 
 /* All sections  */
@@ -53,7 +52,6 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 0 0 1;
   border-radius: 2rem;
   margin: 1rem 0;
   padding: 1rem;
@@ -78,7 +76,7 @@ main .clock-section div {
 /* Name  */
 main .name-section {
   width: 100%;
-  max-width: 800px;
+  max-width: 700px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -272,25 +270,30 @@ main .weather-section .weather-card .details {
   border-radius: 2rem;
   padding: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   line-height: 2rem;
   text-transform: capitalize;
+  justify-content: center;
 }
 
 .poke-img {
-  width: 80%;
+  width: 100%;
+  padding: 10px;
 }
 
 .party-div {
-  border-top: 1px solid rgb(26, 26, 26);
-  max-width: 100%;
+  /* border-top: 1px solid rgb(26, 26, 26); */
+  max-width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 0.8rem;
+  margin-left: 3%;
 }
 
 .party-div img {
-  width: 35%;
+  width: 100%;
 }
 
 /* Notes  */
@@ -325,4 +328,10 @@ main .weather-section .weather-card .details {
   color: rgba(240, 240, 240, 0.9);
   letter-spacing: 0.1rem;
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 1045px) {
+  main .row-part section {
+    flex: 1;
+  }
 }

@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let species;
   const speciesUrl = "https://pokeapi.co/api/v2/pokemon-species/";
 
-  let removeIcon;
-
   // Url to the national dex
   const url = "https://pokeapi.co/api/v2/pokemon/";
   let randomPokeNum = Math.floor(Math.random() * 1025 + 1);
