@@ -37,6 +37,9 @@ To deploy website locally:
 You may also view the website via Netlify:
 https://jumi-dashboard.netlify.app/
 
+Or Github Pages: 
+https://jumistrandberg.github.io/dashboard/
+
 
 
 ## Dependencies
