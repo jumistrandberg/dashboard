@@ -127,7 +127,7 @@ async function checkWeatherUserLocation(lat, long) {
     apiKey = await getApiKey();
 
     // The url
-    const geoUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`
+const geoUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${apiKey}&units=metric`;
     const response = await fetch(geoUrl); 
     if(response.ok) {
         const data = await response.json(); 
